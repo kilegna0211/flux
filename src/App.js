@@ -26,5 +26,33 @@ function App(props) {
 
 export default App;
 
+// export default class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       products: []
+//     };
+//   }
 
+//   componentDidMount() {
+//     wsSalesCampaign(this.props.campaignId,this.props.size).then(res => {
+//       console.log(res.items)
+//       const { products } = this.state;
+//       products.push(...res.items);
+//       this.setState({products});
+//     })
+//   };
+
+//   render() {
+//     return (
+//      <div className="App">
+//          <ProductList
+//            className="container-ProductsList"
+//            products={this.state.products}
+//            size={this.props.size} 
+//          />
+//      </div>
+//     );
+//   }
+// }
 
