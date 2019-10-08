@@ -1,0 +1,31 @@
+.flux-promo-item-sticker {
+    min-height: 24px;
+    max-height: 24px;
+    width: 120px;
+    background-color: rgba(191, 0, 0,0.7);
+    border-radius: 3px;
+    transform: skew(-10deg);
+    -webkit-transform: skew(-10deg);
+    -moz-transform: skew(-10deg);
+}
+
+.flux-promo-item-sticker-text {
+    transform: skew(10deg);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+}
+
+@media all and (max-width:768px) {
+    .flux-promo-item-sticker {
+        min-height: 18px;
+        max-height: 18px;
+        width: 90px;
+        margin-top: 1rem;
+    }
+    .flux-promo-item-sticker-text {
+        font-size: 10px;
+    }
+    .flux-promo-icon_sticker {
+        width: 8px;
+    }
+}

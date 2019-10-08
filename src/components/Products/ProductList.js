@@ -3,8 +3,8 @@ import ProductItem from './ProductItem';
 
 function ProductList(props) {
   return (
-    <div className="product-container flex justify-center items-center">
-      <div className="flux-product-container w-100 grid_row ph0 ph3-ns">
+    <div className="product-container">
+      <div className="flux-product-container w-100 flex justify-center flex-wrap ph0 ph3-ns">
         {props.products.map((item, index) => (
           <ProductItem item={item} key={index} />
         ))}

@@ -1,0 +1,190 @@
+/*** coupon Club ***/
+.flux-promo-blocPrice-Club_large-device {
+    border-radius: 3px;
+    border: 1px solid #bf0000;
+     /* fix border on some device*/
+    border-right: inset 2px #bf0000;
+    min-height: 94px;
+    max-height: 94px;
+}
+
+.flux-promo-blocPrice-Club_small-device {
+    border-radius: 3px;
+    border: 1px solid #bf0000;
+     /* fix border on some device*/
+    /* border-right: inset 2px #bf0000; */
+    min-height: 116px;
+    max-height: 116px;
+    margin-bottom: 0.5rem;
+}
+
+.flux-promo-price-off {
+  color: #929292
+}
+
+.flux-promo-pct-discount {
+  background-color: #0099FF;
+  border-radius: 3px;
+  padding: 1px;
+}
+
+.price-euro-club {
+  top: -15px;
+}
+
+.white-logo-club {
+    height: 14px;
+}
+.white-logo-club_small-device {
+    height: 12px;
+}
+
+.flux-promo-blocPrice-Club-leftBloc_large-device {
+    width: 45%;
+}
+
+.flux-promo-blocPrice-Club-leftBloc_large-device:after {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 8%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: #ffffff;
+    transform-origin: bottom left;
+    -ms-transform: skew(-5deg, 0deg);
+    -webkit-transform: skew(-5deg, 0deg);
+    transform: skew(-5deg, 0deg);
+    border-bottom-left-radius: 3px;
+}
+
+.flux-promo-blocPrice-Club-rightBloc_large-device {
+    width: 55%;
+ }
+
+.flux-promo-blocPrice-Club-topBloc_small-device {
+    width: 100%;
+    height: 45%;
+}
+
+.flux-promo-blocPrice-Club-bottomBloc_small-device {
+    width: 100%;
+    height: 55%;
+}
+.flux-promo-blocPrice-Club-bottomBloc_small-device:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 12%;
+    top: -7px;
+    left: 0;
+    z-index: 1;
+    background: #ffffff;
+    transform-origin: right top;
+    -ms-transform: skew(0deg, -2deg);
+    -webkit-transform: skew(0deg, -2deg);
+    transform: skew(0deg, -2deg);
+}
+ .flux-promo-blocPrice-Club_small-device .price-decimal {
+     margin-left: -6px
+ }
+
+ .flux-promo-blocPrice-Club_small-device .price-euro-club {
+    top: -10px;
+}
+
+/*** Coupon full site & marchand ***/
+.price-euro-full {
+    top: -23px; 
+}
+
+.price-decimal-full_large-device {
+    margin-left: -1.5rem;
+}
+.price-decimal-full_small-device {
+    margin-left: -1rem;
+}
+.flux-promo-blocPrice-full_small-device {
+    margin-bottom: 30px;
+}
+.price-euro-full_small-device {
+    top: -15px; 
+}
+
+/*** Bloc paiement 4x ***/
+.flux-promo-blocPrice-4X {
+    border-radius: 3px;
+    border: 1px solid #479bd4;
+    /* fix border on some device*/
+    border-right: inset 2px #479bd4;
+    min-height: 94px;
+    max-height: 94px;
+}
+.flux-promo-blocPrice-4X_small-device {
+    border-radius: 3px;
+    border: 1px solid #479bd4;
+    /* fix border on some device*/
+    min-height: 116px;
+    max-height: 116px;
+    margin-bottom: 0.5rem;
+}
+
+.flux-promo-blocPrice-4X-rightBloc {
+    width: 55%;
+}
+
+.flux-promo-blocPrice-4X-rightBloc_small-device {
+    width: 100%;
+}
+.flux-promo-blocPrice-4X-bottomBloc_small-device:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 12%;
+    top: -7px;
+    left: 0;
+    z-index: 1;
+    background: #ffffff;
+    transform-origin: right top;
+    -ms-transform: skew(0deg, -2deg);
+    -webkit-transform: skew(0deg, -2deg);
+    transform: skew(0deg, -2deg);
+}
+.icon4xCB {
+    top: 3px;
+}
+.flux-promo-blocPrice-4X_small-device .price-decimal {
+    margin-left: -6px
+}
+
+.flux-promo-blocPrice-4X_small-device .price-euro-club {
+   top: -10px;
+}
+
+/*** Bloc promo avec ou sans prix barré ***/
+.flux-promo-blocPrice-promo_small-device {
+    margin-bottom: 18px;
+}
+.promo-price-economy {
+    width: fit-content;
+    border-radius: 3px;
+    transform: skew(-10deg);
+    -webkit-transform: skew(-10deg);
+    -moz-transform: skew(-10deg);
+}
+
+.promo-price-economy-text {
+    transform: skew(10deg);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+}
+
+.helper-blocPrice {
+    max-height: 50px;
+    min-height: 50px;
+    top: -4px;
+}

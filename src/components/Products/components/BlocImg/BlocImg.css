@@ -1,0 +1,68 @@
+.flux-promo-item-img {
+    max-height: 190px;
+    min-height: 190px;
+    max-width: 190px;
+    min-width: 190px;
+}
+
+/** ------------ Rating system ------------ **/
+  
+.flux-promo-item-rating-stars {
+    background-image: url('https://pmcdn.staticpmrk.com/visuels/2017/hpassets/rate.svg');
+    background-repeat: no-repeat;
+    width: 8rem;
+    height: 2.1rem;
+}
+  
+.rating_0 .flux-promo-item-rating-stars {
+    background-position: -8rem 0;
+}
+  
+.rating_5 .flux-promo-item-rating-stars {
+    background-position: -8rem -2rem;
+}
+  
+.rating_10 .flux-promo-item-rating-stars {
+    background-position: -6.4rem 0;
+}
+  
+.rating_15 .flux-promo-item-rating-stars {
+    background-position: -6.4rem -2rem;
+}
+  
+.rating_20 .flux-promo-item-rating-stars {
+    background-position: -4.8rem 0;
+}
+  
+.rating_25 .flux-promo-item-rating-stars {
+    background-position: -4.8rem -2rem;
+}
+  
+.rating_30 .flux-promo-item-rating-stars {
+    background-position: -3.2rem 0;
+}
+  
+.rating_35 .flux-promo-item-rating-stars {
+    background-position: -3.2rem -2rem;
+}
+  
+.rating_40 .flux-promo-item-rating-stars {
+    background-position: -1.6rem 0;
+}
+  
+.rating_45 .flux-promo-item-rating-stars {
+    background-position: -1.6rem -2rem;
+}
+  
+.rating_50 .flux-promo-item-rating-stars {
+    background-position: 0 0;
+}
+
+@media all and (max-width:768px) {
+    .flux-promo-item-img {
+        max-height: 106px;
+        min-height: 106px;
+        max-width: 106px;
+        min-width: 106px;
+    }
+}

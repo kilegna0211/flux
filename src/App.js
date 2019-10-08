@@ -8,11 +8,10 @@ function App(props) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    wsSalesCampaign(campaignId,size).then(res => {
-      console.log(res)
-      setProducts([...res.items]);
+    wsSalesCampaign(campaignId, size).then(res => {
+      setProducts([...res.items])
     })
-  })
+  }, [campaignId, size]); //second argument optionnel : ne se ré-abonne que si props.size change, évite de lancer la requête get à l'infini
 
   return (
     <div className="App">
@@ -25,34 +24,3 @@ function App(props) {
 }
 
 export default App;
-
-// export default class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       products: []
-//     };
-//   }
-
-//   componentDidMount() {
-//     wsSalesCampaign(this.props.campaignId,this.props.size).then(res => {
-//       console.log(res.items)
-//       const { products } = this.state;
-//       products.push(...res.items);
-//       this.setState({products});
-//     })
-//   };
-
-//   render() {
-//     return (
-//      <div className="App">
-//          <ProductList
-//            className="container-ProductsList"
-//            products={this.state.products}
-//            size={this.props.size} 
-//          />
-//      </div>
-//     );
-//   }
-// }
-

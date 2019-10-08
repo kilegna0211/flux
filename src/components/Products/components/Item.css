@@ -1,0 +1,54 @@
+.flux-promo-item-link-large_device {
+    border-radius: 3px;
+    max-width: 320px;
+    min-width: 320px;
+    max-height: 446px;
+    min-height: 446px;
+}
+
+.flux-promo-item-link-large_device:hover {
+    transition: all 0.1s;
+    box-shadow: 0px 0px 6px 1px rgba( 0, 0, 0, .1 );
+}
+
+.flux-promo-item-link-small_device {
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
+    max-width: 186px;
+    min-width: 186px;
+    max-height: 349px;
+    min-height: 349px;
+} 
+
+.flux-promo-item-reduction {
+    position: absolute;
+    width: 3.2rem;
+    height: 3.2rem;
+    line-height: 3.2rem;
+    top: 3px;
+    right: 0;
+    text-align: center;
+    font-weight: 700;
+    background-color: #ffed6b;
+    border-radius: 50%;
+}
+  
+.flux-promo-item-title {
+    overflow: hidden;
+    line-height: 2rem;
+}
+
+/** bloc club R **/
+.flux-promo-bloc-clubR {
+    background-image: url(https://pmcdn.staticpmrk.com/visuels/canopy-commons/BG_flux_desk.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    border: 1px solid #ddd;
+}
+      
+.flux-promo-item-title-small_device {
+    line-height: 1.6rem;
+    height: 52px;
+}
+    
