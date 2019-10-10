@@ -49,8 +49,13 @@ body {
   color: #4a4a4a;
 }
 
-.fixed-height-16 {
+.fixed-height-20 {
   max-height: 2rem;
   min-height: 2rem;
   padding: .4rem 0 0;
+}
+
+.fixed-height-21 {
+  max-height: 21px;
+  min-height: 21px;
 }

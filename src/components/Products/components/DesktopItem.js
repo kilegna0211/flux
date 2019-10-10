@@ -6,18 +6,18 @@ import BlocPrice from './BlocPrice/index';
 import './Item.css';
 
 function DesktopItem(props) {
-    const { item, title, productUrl  } = props;
+    const { data } = props;
     const device = 'desktop';
 
   return (
-    <a className="flux-promo-item-link-large_device helper_hide-BelowTablet flex flex-column ph4 pb4 pt3 ma3 bg-white ba b--light-gray no-underline mid-gray relative" href={productUrl}>
-        <BlocImg item={item} title={title} />
+    <a className="flux-promo-item-link-large_device helper_hide-BelowTablet flex flex-column ph4 pb4 pt3 ma3 bg-white ba b--light-gray no-underline mid-gray relative" href={data.productUrl}>
+        <BlocImg data={data} />
         <div className="flux-promo-item-description">
-            <p className="flux-promo-item-title b f16 pv3">{title}</p>
+            <p className="flux-promo-item-title b f16 pv3">{data.titleLimited}</p>
             <Sticker />
         </div>
-        <BlocPrice item={item} device={device} />
-        <BlocClub item={item} device={device} />
+        <BlocPrice data={data} device={device} />
+        <BlocClub data={data} device={device} />
     </a>
   );
 };

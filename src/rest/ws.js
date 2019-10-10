@@ -12,4 +12,3 @@ const wsSalesCampaign = async (campaignId, size) => {
 }
 
 export { wsSalesCampaign }
-

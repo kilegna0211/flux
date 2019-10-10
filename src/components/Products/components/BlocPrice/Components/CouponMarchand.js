@@ -2,12 +2,7 @@ import React from 'react';
 import './../BlocPrice.css';
 
 function CouponFullSite(props) {
-    const { item, device } = props;
-    const refPrice = item.selected_advert.reference_price || '';
-    const originalPrice = item.product.original_price || '';
-      //price
-  const price = item.selected_advert.price || 0;
-  const formatedPrice = price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const { data, device } = props;
 
   return (
     <React.Fragment>
@@ -15,8 +10,8 @@ function CouponFullSite(props) {
       <div className="flux-promo-blocPrice-full_large-device flex flex-column mv3">
         <div className="flex justify-center pt2">
           <p className="flux-promo-price-off dib line-through f14 pr2">
-            { refPrice ? <span>{refPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
-            : originalPrice > price ? <span>{originalPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
+            { data.refPrice ? <span>{data.refPrice} &#8364;</span>
+            : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
             : '' 
             }
           </p>
@@ -30,8 +25,8 @@ function CouponFullSite(props) {
       <div className="flux-promo-blocPrice-full_small-device flex flex-column mt3">
         <div className="flex justify-center pt3 pb2">
           <p className="flux-promo-price-off dib line-through f14 pr2">
-          { refPrice ? <span>{refPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
-          : originalPrice > price ? <span>{originalPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
+          { data.refPrice ? <span>{data.refPrice} &#8364;</span>
+          : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
           : '' 
           }
           </p>

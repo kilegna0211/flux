@@ -2,8 +2,9 @@ import React from 'react';
 import './BlocClub.css';
 
 function BlocClub(props) {
-    const { item, device } = props;
-    const RSPBonus = item.selected_advert.superpoints_bonus || '';
+    const { data, device } = props;
+    // const RSPBonus = item.selected_advert.superpoints_bonus || '';
+    const RSPBonus = 5;
     const RSP = 5;
 
   return (

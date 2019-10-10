@@ -2,22 +2,17 @@ import React from 'react';
 import './../BlocPrice.css';
 
 function QuatreX(props) {
-    const { item, device } = props;
-    const refPrice = item.selected_advert.reference_price || '';
-    const originalPrice = item.product.original_price || '';
-      //price
-  const price = item.selected_advert.price || 0;
-  const formatedPrice = price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const { data, device } = props;
 
   return (
       <React.Fragment>
           { device === 'desktop' &&
             <div className="flux-promo-blocPrice-4X flex mv3">
                 <div className="flux-promo-blocPrice-Club-leftBloc_large-device relative flex flex-column">
-                    <div className="flex justify-center pt2">
+                    <div className="flex justify-center pt2 fixed-height-21">
                         <p className="flux-promo-price-off dib line-through f14 pr2">
-                        { refPrice ? <span>{refPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
-                        : originalPrice > price ? <span>{originalPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
+                        { data.refPrice ? <span>{data.refPrice} &#8364;</span>
+                        : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
                         : '' }
                         </p>
                         <span className="dib white b f12 flux-promo-pct-discount">-40%</span>
@@ -38,8 +33,8 @@ function QuatreX(props) {
                 <div className="flux-promo-blocPrice-Club-topBloc_small-device relative flex flex-column">
                     <div className="flex justify-center pt2 f10">
                         <p className="flux-promo-price-off dib line-through pr2">
-                        { refPrice ? <span>{refPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
-                        : originalPrice > price ? <span>{originalPrice.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} &#8364;</span>
+                        { data.refPrice ? <span>{data.refPrice} &#8364;</span>
+                        : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
                         : '' }
                         </p>
                         <span className="dib white b flux-promo-pct-discount">-40%</span>

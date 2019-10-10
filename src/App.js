@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { wsSalesCampaign } from './rest/ws';
+import * as ws from './rest/ws';
 import ProductList from './components/Products/index'
 import './App.css';
 
@@ -8,7 +8,7 @@ function App(props) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    wsSalesCampaign(campaignId, size).then(res => {
+    ws.wsSalesCampaign(campaignId, size).then(res => {
       setProducts([...res.items])
     })
   }, [campaignId, size]); //second argument optionnel : ne se ré-abonne que si props.size change, évite de lancer la requête get à l'infini

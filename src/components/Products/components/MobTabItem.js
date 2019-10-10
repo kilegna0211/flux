@@ -6,16 +6,16 @@ import BlocPrice from './BlocPrice/index';
 import './Item.css';
 
 function MobTabItem(props) {
-    const { item, title, productUrl } = props;
+    const { data } = props;
     const device = 'mob-tab';
 
   return (
-        <a className="flux-promo-item-link-small_device helper_hide-AboveTablet flex flex-column ph3 pb3 bg-white no-underline mid-gray relative" href={productUrl}>
-            <p className="flux-promo-item-title-small_device b f12 pv3">{title}</p>
-            <BlocImg item={item} title={title} />
+        <a className="flux-promo-item-link-small_device helper_hide-AboveTablet flex flex-column ph3 pb3 bg-white no-underline mid-gray relative" href={data.productUrl}>
+            <p className="flux-promo-item-title-small_device b f12 pv3">{data.titleLimited}</p>
+            <BlocImg data={data} />
             <Sticker />
-            <BlocPrice item={item} device={device} />
-            <BlocClub item={item} device={device}/>
+            <BlocPrice data={data} device={device} />
+            <BlocClub data={data} device={device}/>
         </a>
   );
 };
