@@ -4,8 +4,8 @@ const devENVGetCoupons = () => {
 			"type": "COUPON",
 			"code": "TESTClub",
 			"clubMember": "SUBSCRIBED",
-			"amount": 5,
-			"minPurchase": 200,
+			"amount": 25,
+			"minPurchase": 100,
 			"scope": "global",
 			"programmation": [
 				{

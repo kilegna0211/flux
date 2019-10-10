@@ -5,6 +5,8 @@ import './../BlocPrice.css';
 function CouponClub(props) {
     const { data, device } = props;
     const codeCoupon = data.coupon.code || '';
+    const priceClubMember = data.price - data.coupon.amount || 0;
+    // const RSPoffered = (priceClubMember * data.RSP)/100 || 0;
 
   return (
     <React.Fragment>
@@ -29,7 +31,10 @@ function CouponClub(props) {
                     <span className="dib">Prix membre</span>
                     <img className="white-logo-club pt1 pl1" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/ClubR_white.svg" alt="logo club R blanc"/>
                 </div>
-                <div className="fw9"><span className="dib f35">{Math.trunc(data.price)}<sup className="f14 price-euro-club">€</sup></span><span className="f14 dib nl3">,95</span></div>
+                <div className="fw9">
+                    <span className="dib f35">{Math.trunc(priceClubMember)}<sup className="f14 price-euro-club">€</sup></span>
+                    { getFraction(priceClubMember) !== ',00' ? <span className="f14 dib nl3">{getFraction(priceClubMember)}</span> : '' }
+                </div>
                 <div className="dib"><span className="dib">avec le code</span><span className="b"> {codeCoupon}</span></div>
             </div>
         </div>
