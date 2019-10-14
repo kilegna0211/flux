@@ -6,6 +6,11 @@ import { devENVGetCoupons } from '../../utils/index';
 import './Products.css';
 
 const ProductItem = ({ item, index }) => {
+  //récupération des infos du user
+  const isMember = '{{user.isSubscribedToPriceClub}}' || false;
+  console.log('user est membre :'+ isMember)
+  const memberStatus = '{{user.priceClubRank}}' || 'SILVER';
+  console.log('statut de lutilisateur' + memberStatus);
   //récupération des données du ws
   const productId = item.product.product_id;
   const advertId = item.selected_advert.advertId || null;
@@ -37,7 +42,6 @@ const ProductItem = ({ item, index }) => {
   const noteRoundedClass = (Math.round(item.product.review_average_note * 2) / 2) * 10 || '';
 
   const KML = window.KML || [];
-  const isMember = '{{user.isSubscribedToPriceClub}}' || false;
   var coupon = {};
 
   if ( KML.length !== 0 ) {
