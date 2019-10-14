@@ -51,6 +51,7 @@ const ProductItem = ({ item, index, user }) => {
     coupon = devENVGetCoupons() || undefined;
   }
 
+  console.log('test info coupon : '+coupon)
     //initialisation des données pour chaque item
     const data = {
       productId,
