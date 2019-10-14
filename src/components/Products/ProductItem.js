@@ -11,6 +11,7 @@ const ProductItem = ({ item, index }) => {
   console.log('user est membre :'+ isMember)
   const memberStatus = '{{user.priceClubRank}}' || 'SILVER';
   console.log('statut de lutilisateur' + memberStatus);
+
   //récupération des données du ws
   const productId = item.product.product_id;
   const advertId = item.selected_advert.advertId || null;
@@ -70,7 +71,8 @@ const ProductItem = ({ item, index }) => {
       titleLimitedMob,
       noteRounded,
       noteRoundedClass,
-      coupon
+      coupon,
+      memberStatus
     }
 
   // KML.marketing.coupons.get("Tel-PDA", "Telephones-mobiles", 4203109223, 5090639475, 737.99, false).then(function(odr) { 
