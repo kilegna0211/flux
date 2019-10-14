@@ -5,13 +5,10 @@ import MobTabItem from './components/MobTabItem';
 import { devENVGetCoupons } from '../../utils/index';
 import './Products.css';
 
-const ProductItem = ({ item, index }) => {
-  //récupération des infos du user
-  const isMember = '{{user.isSubscribedToPriceClub}}' || false;
-  console.log('user est membre :'+ isMember)
-  const memberStatus = '{{user.priceClubRank}}' || 'SILVER';
-  console.log('statut de lutilisateur' + memberStatus);
-
+const ProductItem = ({ item, index, user }) => {
+  // récupération des infos du user:
+  const clubMember = user.isMember;
+  const clubStatus = user.memberStatus;
   //récupération des données du ws
   const productId = item.product.product_id;
   const advertId = item.selected_advert.advertId || null;
@@ -46,7 +43,7 @@ const ProductItem = ({ item, index }) => {
   var coupon = {};
 
   if ( KML.length !== 0 ) {
-    KML.marketing.coupons.get(category, subCategory, productId, advertId, price, isMember).then(function(res) { 
+    KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
       coupon = res
     });
   } 
@@ -72,7 +69,7 @@ const ProductItem = ({ item, index }) => {
       noteRounded,
       noteRoundedClass,
       coupon,
-      memberStatus
+      clubStatus
     }
 
   // KML.marketing.coupons.get("Tel-PDA", "Telephones-mobiles", 4203109223, 5090639475, 737.99, false).then(function(odr) { 

@@ -27,13 +27,26 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React App</title>
   </head>
+  <style>
+  /* custom css for integ */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+  }
+  /* end custom css for integ */
+  </style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="rootMerchFluxPromo"></div>
   </body>
   <script>
+    //récupération des infos du user pour environnement de DEV || si prod infos récupérées dans jahia
+    const isMember = true;
+    const memberStatus = 'SILVER';
+
     setTimeout(function() {
     window.RKTFLUXPROMORENDER("rootMerchFluxPromo", {
+        "user" : { isMember, memberStatus },
         "campaignId": 619059624,
         "size": 5,
         "tracking": ""

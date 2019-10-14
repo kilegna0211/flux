@@ -4,7 +4,7 @@ import ProductList from './components/Products/index'
 import './App.css';
 
 function App(props) {
-  const {campaignId, size} = props;
+  const {campaignId, size, user} = props;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ function App(props) {
         <ProductList
           className="container-ProductsList"
           products={products}
+          user={user}
         />
     </div>
   );
