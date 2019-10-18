@@ -30,14 +30,19 @@
   <style>
   /* custom css for integ */
   body {
-    font-family: 'Open Sans', sans-serif;
     background-color: white;
+  }
+  .OpenSans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .OpenSans-eb {
+    font-weight: 800;
   }
   /* end custom css for integ */
   </style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="rootMerchFluxPromo"></div>
+    <div class="OpenSans" id="rootMerchFluxPromo"></div>
   </body>
   <script>
     //récupération des infos du user pour environnement DEV || si prod infos récupérées dans jahia
@@ -47,9 +52,9 @@
     setTimeout(function() {
     window.RKTFLUXPROMORENDER("rootMerchFluxPromo", {
         "user" : { isMember, memberStatus },
-        "campaignId": 619059624,
+        "campaignId": 721310265,
         "size": 5,
-        "tracking": ""
+        "tracking": "[PMC]-[H]-[HomePage]-[Rakuten-deals]-[carrousel-offres-exclusives]"
     })
     }
     ,1000)

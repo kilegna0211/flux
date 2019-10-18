@@ -8,25 +8,37 @@ import PromoPrice from './Components/PromoPrice';
 
 function BlocPrice(props) {
     const { data, device } = props;
-    const isCouponMember = data.coupon.clubMember === 'SUBSCRIBED' || false;
-  
+    const coupon = data.coupon || null;
+    var isCouponMember = false;
+    var isCouponAllUsers = false;
+    const rakupon = data.rakupon || null; 
+    var minPurchaseRakupon = 0;
+    const isQuatreX = data.price >= 90 || false;
+
+    if (coupon) {
+        isCouponMember = coupon.clubMember === 'SUBSCRIBED';
+        isCouponAllUsers = coupon.clubMember === 'ALL';
+    }
+
+    if (rakupon) minPurchaseRakupon = rakupon.minimum_purchase_amount;
+
   return (
     <React.Fragment>
-        { data.productId === 4127563261 &&
-            <QuatreX data={data} device={device} /> 
+       { isCouponMember && data.priceClubMember !== data.price &&
+          <CouponClub data={data} device={device} />
         }
-        { data.productId === 4127563267 && 
-            <CouponFullSite data={data} device={device} />
-        }
-        { isCouponMember && 
-            <CouponClub data={data} device={device} />
-        }
-        { data.productId === 4127563260 && 
-            <CouponMarchand data={data} device={device} />
-        }
-        { data.productId === 4127563256 && 
-            <PromoPrice data={data} device={device} />
-        }
+      { isCouponAllUsers &&
+        <CouponFullSite data={data} device={device} />
+      }
+      { !coupon && rakupon && minPurchaseRakupon <= data.price &&
+        <CouponMarchand data={data} device={device} />
+      }
+      { !coupon && !rakupon && isQuatreX &&
+        <QuatreX data={data} device={device} /> 
+      }
+      { !coupon && !rakupon && !isQuatreX &&
+        <PromoPrice data={data} device={device} />
+      }
     </React.Fragment>
   );
 };

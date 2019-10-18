@@ -5,27 +5,38 @@ import MobTabItem from './components/MobTabItem';
 import { devENVGetCoupons } from '../../utils/index';
 import './Products.css';
 
-const ProductItem = ({ item, index, user }) => {
+const ProductItem = ({ item, index, user, tracking }) => {
   // récupération des infos du user:
   const clubMember = user.isMember;
   const clubStatus = user.memberStatus;
+
   //récupération des données du ws
   const productId = item.product.product_id;
-  const advertId = item.selected_advert.advertId || null;
+  const advertId = item.selected_advert.advertId || 0;
   const category = item.product.category;
   const subCategory = item.product.subcategory;
   const price = item.selected_advert.price;
-  const RSP = item.selected_advert.superpoints_bonus || 5;
-
-  console.log(price)
-  // const price = item.selected_advert.price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const refPrice = item.selected_advert.reference_price || '';
   const originalPrice = item.product.original_price || '';
-  const pctDiscount = item.selected_advert.pct_discount || 1; 
-  const productUrl = item.selected_advert.url || '';
+  const pctDiscount = item.selected_advert.pct_discount || ''; 
+  const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
+
+  // url 
+  let itemUrl = '';
+  let xtatc = '#xtatc=PUB-' + tracking + '-[' + productId + ']-[]';
+  const productUrl = item.product.url;
+  if (productUrl.includes('mfp')) {
+    itemUrl = productUrl + '&bbaid=' + advertId + xtatc
+  }
+  if (productUrl.includes('offer/')) {
+    itemUrl = productUrl + '?bbaid=' + advertId + xtatc
+  }
+  if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
+    itemUrl = item.selected_advert.url + xtatc
+  }
+
   const rakupon = item.selected_advert.rakupon || '';
-  const rakuponReduc = rakupon.reduction_amount || 0;
-  const rakuponMinPurchase = rakupon.minimum_purchase_amount || 0;
+
   const imgUrl = item.product.image_1 + '_ML.jpg' || '';
   //Titre Item - gestion de la longueur large device
   let titleLimited;
@@ -51,8 +62,29 @@ const ProductItem = ({ item, index, user }) => {
     coupon = devENVGetCoupons() || undefined;
   }
 
-  console.log('test info coupon : '+coupon)
-    //initialisation des données pour chaque item
+  //calcul du prix pour les membres quand coupon club:
+  var priceClubMember = '';
+  if ( coupon !== undefined && price > coupon.minPurchase ) {
+    priceClubMember = price - coupon.amount;
+  }
+  if ( coupon !== undefined && price < coupon.minPurchase ) {
+    priceClubMember = price;
+  }
+
+  const calculRSP = (number) => {
+    if ( rankMemberStatus ) {
+      if ( clubStatus === 'REGULAR' ) return number * ( rankMemberStatus.REGULAR / 100 )
+      if ( clubStatus === 'SILVER' ) return number * ( rankMemberStatus.SILVER / 100 )
+      if ( clubStatus === 'GOLD' ) return number * ( rankMemberStatus.GOLD / 100 )
+      if ( clubStatus === 'PLATINIUM' ) return number * ( rankMemberStatus.PLATINIUM / 100 )
+    }
+    if ( !rankMemberStatus && item.selected_advert.superpoint_bonus ) {
+      return number * (item.selected_advert.superpoints_bonus / 100)
+    }
+    return number * 0.05
+  }
+
+  //initialisation des données pour chaque item
     const data = {
       productId,
       advertId,
@@ -61,32 +93,19 @@ const ProductItem = ({ item, index, user }) => {
       price,
       refPrice,
       originalPrice,
-      RSP,
+      priceClubMember,
+      calculRSP,
       pctDiscount,
-      productUrl,
+      itemUrl,
       imgUrl,
       titleLimited,
       titleLimitedMob,
       noteRounded,
       noteRoundedClass,
       coupon,
+      rakupon,
       clubStatus
     }
-
-  // KML.marketing.coupons.get("Tel-PDA", "Telephones-mobiles", 4203109223, 5090639475, 737.99, false).then(function(odr) { 
-  //   console.log(test)
-  //   console.log(odr) 
-  // });
- 
-
-  // const bestOffer = item.bestOffer ? item.bestOffer : '';
-  // const formatedBestOffer = bestOffer.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-  // const freeShipping = item.selected_advert.free_shipping || '';
-
-
-
-  // const pctDiscount = item.selected_advert.pct_discount || '';
 
   const Item = () => (
     <React.Fragment>

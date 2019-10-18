@@ -2,10 +2,10 @@ const devENVGetCoupons = () => {
 		return {
 			"id": "34",
 			"type": "COUPON",
-			"code": "TESTClub",
+			"code": "fullSITE",
 			"clubMember": "SUBSCRIBED",
 			"amount": 25,
-			"minPurchase": 100,
+			"minPurchase": 50,
 			"scope": "global",
 			"programmation": [
 				{
@@ -28,4 +28,19 @@ const getFraction = (number) => {
 	return s.slice(s.indexOf('.')).replace('.',',');
 }
 
-export { devENVGetCoupons, getFraction }
+const formatedPrice = (price) => {
+	if (price === parseInt(price, 10)) {
+	  return price;
+	} 
+	return price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+};
+
+const discountOriginalPrice = (price, originalPrice) => {
+	if ( originalPrice > price ) {
+      let discountPrice = Math.round((originalPrice-price)*100/originalPrice);
+      return discountPrice;
+    }
+};
+
+export { devENVGetCoupons, getFraction, formatedPrice, discountOriginalPrice }
+

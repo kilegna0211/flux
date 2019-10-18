@@ -4,7 +4,7 @@ import ProductList from './components/Products/index'
 import './App.css';
 
 function App(props) {
-  const {campaignId, size, user} = props;
+  const {campaignId, size, user, tracking} = props;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -14,11 +14,12 @@ function App(props) {
   }, [campaignId, size]); //second argument optionnel : ne se ré-abonne que si props.size change, évite de lancer la requête get à l'infini
 
   return (
-    <div className="App">
+    <div className="App OpenSans-loaded">
         <ProductList
           className="container-ProductsList"
           products={products}
           user={user}
+          tracking={tracking}
         />
     </div>
   );

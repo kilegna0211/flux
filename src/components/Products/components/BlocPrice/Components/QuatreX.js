@@ -1,29 +1,44 @@
 import React from 'react';
+import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
 function QuatreX(props) {
     const { data, device } = props;
-
+    const paiement4X = (number) => {
+        let commission = number * 0.022;
+        let echeance = (number / 4) + (commission / 4);
+        return echeance
+    } 
   return (
       <React.Fragment>
           { device === 'desktop' &&
             <div className="flux-promo-blocPrice-4X flex mv3">
                 <div className="flux-promo-blocPrice-Club-leftBloc_large-device relative flex flex-column">
-                    <div className="flex justify-center pt2 fixed-height-21">
+                    <div className="flex justify-center fixed-height-24 helper-pt-0_8">
                         <p className="flux-promo-price-off dib line-through f14 pr2">
-                        { data.refPrice ? <span>{data.refPrice} &#8364;</span>
-                        : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
-                        : '' }
+                        { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
+                            : data.refPrice > data.price ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
+                            : '' 
+                        }
                         </p>
-                        <span className="dib white b f12 flux-promo-pct-discount">-40%</span>
+                        { data.originalPrice ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                          : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
+                          : <span className="red-rkt f12 dib pt1">Paiement standard</span>
+                        }
                     </div>
-                    <div className="fw9 red-rkt pt2"><span className="dib f35">150<sup className="f14 price-euro-club">€</sup></span><span className="f14 dib nl3">,99</span></div>
+                    <div className="OpenSans-eb fw8 red-rkt pt2">
+                        <span className="dib f35">{Math.trunc(data.price)}<sup className="f14 price-euro-club">€</sup></span>
+                        { getFraction(data.price) !== ',00' ? <span className="f14 dib nl3">{getFraction(data.price)}</span> : '' }
+                    </div>
                 </div>
-                <div className="flux-promo-blocPrice-4X-rightBloc relative f12 bg-blue-4x white flex flex-column justify-center">
-                    <div className="flex justify-center items-center">
+                <div className="flux-promo-blocPrice-4X-rightBloc relative f12 bg-blue-4x white flex flex-column">
+                    <div className="flex justify-center items-center fixed-height-24 helper-pt-0_8">
                         <span className="dib">4 échéances de</span>
                     </div>
-                    <div className="fw9"><span className="dib f35">100<sup className="f14 price-euro-club">€</sup></span><span className="f14 dib nl3">,95</span></div>
+                    <div className="OpenSans-eb fw8 pt2">
+                        <span className="dib f35">{Math.trunc(paiement4X(data.price))}<sup className="f14 price-euro-club">€</sup></span>
+                        { getFraction(paiement4X(data.price)) !== ',00' ? <span className="f14 dib nl3">{getFraction(paiement4X(data.price))}</span> : '' }
+                    </div>
                     <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/icon4xCB.svg" alt="paiement 4XCB" /></div>
                 </div>
             </div>
@@ -33,19 +48,29 @@ function QuatreX(props) {
                 <div className="flux-promo-blocPrice-Club-topBloc_small-device relative flex flex-column">
                     <div className="flex justify-center pt2 f10">
                         <p className="flux-promo-price-off dib line-through pr2">
-                        { data.refPrice ? <span>{data.refPrice} &#8364;</span>
-                        : data.originalPrice > data.price ? <span>{data.originalPrice} &#8364;</span>
-                        : '' }
+                            { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
+                                : data.refPrice > data.price ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
+                                : '' 
+                            }
                         </p>
-                        <span className="dib white b flux-promo-pct-discount">-40%</span>
+                        { data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                          : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
+                          : <span className="red-rkt f10 dib pt1">Paiement standard</span>
+                        }
                     </div>
-                    <div className="fw8 red-rkt pt1 z-2"><span className="dib f20">150<sup className="f10 price-euro-club">€</sup></span><span className="price-decimal f10 dib">,99</span></div>
+                    <div className="OpenSans-eb fw8 red-rkt pt1 z-2">
+                        <span className="dib f20">{Math.trunc(data.price)}<sup className="f10 price-euro-club">€</sup></span>
+                        { getFraction(data.price) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(data.price)}</span> : '' }
+                    </div>
                 </div>
                 <div className="flux-promo-blocPrice-4X-bottomBloc_small-device pt3 pb2 relative f12 bg-blue-4x white flex flex-column justify-center">
                     <div className="flex justify-center items-center">
                         <span className="dib">4 échéances de</span>
                     </div>
-                    <div className="fw8 pv1"><span className="dib f20">100<sup className="f10 price-euro-club">€</sup></span><span className="f10 dib price-decimal">,95</span></div>
+                    <div className="OpenSans-eb fw8 pv1">
+                        <span className="dib f20">{Math.trunc(paiement4X(data.price))}<sup className="f10 price-euro-club">€</sup></span>
+                        { getFraction(paiement4X(data.price)) !== ',00' ? <span className="f10 dib price-decimal">{getFraction(paiement4X(data.price))}</span> : '' }
+                    </div>
                     <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/icon4xCB.svg" alt="paiement 4XCB" /></div>
                 </div>
             </div>

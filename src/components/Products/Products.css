@@ -42,6 +42,19 @@
   color: #4a4a4a;
 }
 
+.color_gray {
+  color: #929292;
+}
+
+.helper-pt-0_8 {
+  padding-top: 0.8rem;
+}
+
+.fixed-height-15 {
+  max-height: 15px;
+  min-height: 15px;
+}
+
 .fixed-height-20 {
   max-height: 2rem;
   min-height: 2rem;
@@ -51,4 +64,19 @@
 .fixed-height-21 {
   max-height: 21px;
   min-height: 21px;
+}
+
+.fixed-height-24 {
+  max-height: 2.4rem;
+  min-height: 2.4rem;
+}
+
+.fixed-height-26 {
+  max-height: 2.6rem;
+  min-height: 2.6rem;
+}
+
+.fixed-height-31 {
+  max-height: 31px;
+  min-height: 31px;
 }
