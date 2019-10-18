@@ -11,6 +11,7 @@ function BlocPrice(props) {
     // const coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;
+    console.log(data.rakupon)
     const rakupon = data.rakupon || null; 
     console.log('rakupon ' + rakupon)
     var minPurchaseRakupon = 0;
@@ -26,7 +27,7 @@ function BlocPrice(props) {
 
   return (
     <React.Fragment>
-       { isCouponMember && data.priceClubMember !== data.price &&
+        { isCouponMember && data.priceClubMember !== data.price &&
           <CouponClub data={data} device={device} />
         }
         { isCouponAllUsers &&
