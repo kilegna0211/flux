@@ -34,13 +34,16 @@ function BlocPrice(props) {
         { isCouponMember && data.priceClubMember !== data.price &&
           <CouponClub data={data} device={device} />
         }
-        { isCouponAllUsers &&
+        { isCouponAllUsers && !isCouponMember &&
          <CouponFullSite data={data} device={device} />
         }
-        { isRakupon &&
+        { !isCouponMember && !isCouponAllUsers && isRakupon &&
            <CouponMarchand data={data} device={device} />
         }
-        { !isRakupon && !isQuatreX &&
+        { !isCouponMember && !isCouponAllUsers && !isRakupon && isQuatreX &&
+           <QuatreX data={data} device={device} /> 
+        }
+        { !isCouponMember && !isCouponAllUsers && !isRakupon && !isQuatreX &&
            <PromoPrice data={data} device={device} />
         }
         
@@ -49,20 +52,3 @@ function BlocPrice(props) {
 };
 
 export default BlocPrice;
-
-
-// { isCouponAllUsers &&
-//   <CouponFullSite data={data} device={device} />
-// }
-// { !coupon && rakupon && minPurchaseRakupon <= data.price &&
-// <CouponMarchand data={data} device={device} />
-// }
-// { !coupon && !rakupon && isQuatreX &&
-// <QuatreX data={data} device={device} /> 
-// }
-// { isCouponMember && data.priceClubMember !== data.price &&
-//   <CouponClub data={data} device={device} />
-// }
-// { coupon === null && rakupon === null &&
-//   <PromoPrice data={data} device={device} />
-//  }
