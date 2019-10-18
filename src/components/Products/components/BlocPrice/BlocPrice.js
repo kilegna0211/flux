@@ -30,7 +30,7 @@ function BlocPrice(props) {
 
   return (
     <React.Fragment>
-<QuatreX data={data} device={device} /> 
+      <CouponClub data={data} device={device} />
     </React.Fragment>
   );
 };
