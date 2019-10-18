@@ -33,9 +33,13 @@ function BlocPrice(props) {
         { isCouponAllUsers &&
          <CouponFullSite data={data} device={device} />
         }
+        { rakupon && minPurchaseRakupon <= data.price &&
+           <CouponMarchand data={data} device={device} />
+        }
         { rakupon === null &&
          <PromoPrice data={data} device={device} />
         }
+        
     </React.Fragment>
   );
 };
