@@ -8,13 +8,19 @@ import PromoPrice from './Components/PromoPrice';
 
 function BlocPrice(props) {
     const { data, device } = props;
+    console.log('blocPrice :'+ props)
     const coupon = data.coupon || null;
+  console.log('coupon :'+coupon);
     var isCouponMember = false;
+    console.log('isCouponMember' + isCouponMember);
     var isCouponAllUsers = false;
+    console.log('isCouponAllUsers ' + isCouponAllUsers)
     const rakupon = data.rakupon || null; 
+    console.log('rakupon ' + rakupon)
     var minPurchaseRakupon = 0;
     const isQuatreX = data.price >= 90 || false;
-
+    console.log('isQuatreX ' + isQuatreX)
+    
     if (coupon) {
         isCouponMember = coupon.clubMember === 'SUBSCRIBED';
         isCouponAllUsers = coupon.clubMember === 'ALL';
@@ -26,10 +32,10 @@ function BlocPrice(props) {
     <React.Fragment>
        { isCouponMember && data.priceClubMember !== data.price &&
           <CouponClub data={data} device={device} />
-        }
-      { isCouponAllUsers &&
-        <CouponFullSite data={data} device={device} />
-      }
+       }
+       { isCouponAllUsers &&
+          <CouponFullSite data={data} device={device} />
+       }
       { !coupon && rakupon && minPurchaseRakupon <= data.price &&
         <CouponMarchand data={data} device={device} />
       }
