@@ -12,7 +12,9 @@ function BlocPrice(props) {
     var isCouponMember = false;
     var isCouponAllUsers = false;
     console.log(data.rakupon)
-    const rakupon = data.rakupon || null; 
+    const rakupon = data.rakupon || null;
+    var isRakupon = false;
+
     console.log('rakupon ' + rakupon)
     var minPurchaseRakupon = 0;
     const isQuatreX = data.price >= 90 || false;
@@ -23,7 +25,9 @@ function BlocPrice(props) {
     //     isCouponAllUsers = coupon.clubMember === 'ALL';
     // }
 
-    if (rakupon !== null) minPurchaseRakupon = rakupon.minimum_purchase_amount;
+    if (rakupon !== null && rakupon.minimum_purchase_amount <= data.price) {
+      isRakupon = true
+    }
 
   return (
     <React.Fragment>
@@ -33,10 +37,10 @@ function BlocPrice(props) {
         { isCouponAllUsers &&
          <CouponFullSite data={data} device={device} />
         }
-        { rakupon && minPurchaseRakupon <= data.price &&
+        { isRakupon &&
            <CouponMarchand data={data} device={device} />
         }
-        { rakupon === null &&
+        { !isRakupon &&
          <PromoPrice data={data} device={device} />
         }
         
