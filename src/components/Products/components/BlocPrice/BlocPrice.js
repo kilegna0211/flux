@@ -8,7 +8,7 @@ import PromoPrice from './Components/PromoPrice';
 
 function BlocPrice(props) {
     const { data, device } = props;
-    // const coupon = data.coupon || null;
+    const coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;
     console.log(data.rakupon)
@@ -20,10 +20,10 @@ function BlocPrice(props) {
     const isQuatreX = data.price >= 90 || false;
     console.log('isQuatreX ' + isQuatreX)
 
-    // if (coupon !== null) {
-    //     isCouponMember = coupon.clubMember === 'SUBSCRIBED';
-    //     isCouponAllUsers = coupon.clubMember === 'ALL';
-    // }
+    if (coupon !== null) {
+        isCouponMember = coupon.clubMember === 'SUBSCRIBED';
+        isCouponAllUsers = coupon.clubMember === 'ALL';
+    }
 
     if (rakupon !== null && rakupon.minimum_purchase_amount <= data.price) {
       isRakupon = true
