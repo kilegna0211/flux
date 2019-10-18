@@ -20,7 +20,7 @@ function BlocPrice(props) {
     var minPurchaseRakupon = 0;
     const isQuatreX = data.price >= 90 || false;
     console.log('isQuatreX ' + isQuatreX)
-    
+
     if (coupon) {
         isCouponMember = coupon.clubMember === 'SUBSCRIBED';
         isCouponAllUsers = coupon.clubMember === 'ALL';
@@ -30,23 +30,25 @@ function BlocPrice(props) {
 
   return (
     <React.Fragment>
-       { isCouponMember && data.priceClubMember !== data.price &&
-          <CouponClub data={data} device={device} />
-       }
-       { isCouponAllUsers &&
-          <CouponFullSite data={data} device={device} />
-       }
-      { !coupon && rakupon && minPurchaseRakupon <= data.price &&
-        <CouponMarchand data={data} device={device} />
-      }
-      { !coupon && !rakupon && isQuatreX &&
-        <QuatreX data={data} device={device} /> 
-      }
-      { !coupon && !rakupon && !isQuatreX &&
-        <PromoPrice data={data} device={device} />
-      }
+<QuatreX data={data} device={device} /> 
     </React.Fragment>
   );
 };
 
 export default BlocPrice;
+
+// { isCouponMember && data.priceClubMember !== data.price &&
+//   <CouponClub data={data} device={device} />
+// }
+// { isCouponAllUsers &&
+//   <CouponFullSite data={data} device={device} />
+// }
+// { !coupon && rakupon && minPurchaseRakupon <= data.price &&
+// <CouponMarchand data={data} device={device} />
+// }
+// { !coupon && !rakupon && isQuatreX &&
+// <QuatreX data={data} device={device} /> 
+// }
+// { !coupon && !rakupon && !isQuatreX &&
+// <PromoPrice data={data} device={device} />
+// }
