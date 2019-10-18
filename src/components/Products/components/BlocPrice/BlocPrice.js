@@ -40,8 +40,8 @@ function BlocPrice(props) {
         { isRakupon &&
            <CouponMarchand data={data} device={device} />
         }
-        { !isRakupon &&
-         <PromoPrice data={data} device={device} />
+        { !isRakupon && !isQuatreX &&
+           <PromoPrice data={data} device={device} />
         }
         
     </React.Fragment>
