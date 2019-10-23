@@ -43,10 +43,5 @@ const discountOriginalPrice = (price, originalPrice) => {
     }
 };
 
-const devENVGetCoupons = () => {
-	console.log('test get coupons')
-	localStorage.setItem('debug', 'test')
-};
-
-export { devENVSetCoupons, devENVGetCoupons, getFraction, formatedPrice, discountOriginalPrice }
+export { devENVSetCoupons, getFraction, formatedPrice, discountOriginalPrice }
 

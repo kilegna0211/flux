@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DesktopItem from './components/DesktopItem';
 import MobTabItem from './components/MobTabItem';
-import { devENVSetCoupons, devENVGetCoupons } from '../../utils/index';
+import { devENVSetCoupons } from '../../utils/index';
 import './Products.css';
 
 const ProductItem = ({ item, index, user, tracking }) => {
@@ -25,15 +25,15 @@ const ProductItem = ({ item, index, user, tracking }) => {
   let itemUrl = '';
   let xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
   const productUrl = item.product.url;
-  if (productUrl.includes('mfp')) {
-    itemUrl = productUrl + '&bbaid=' + advertId + xtatc
-  }
-  if (productUrl.includes('offer/')) {
-    itemUrl = productUrl + '?bbaid=' + advertId+ xtatc
-  }
-  if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
-    itemUrl = item.selected_advert.url+ xtatc
-  }
+  // if (productUrl.includes('mfp')) {
+  //   itemUrl = productUrl + '&bbaid=' + advertId + xtatc
+  // }
+  // if (productUrl.includes('offer/')) {
+  //   itemUrl = productUrl + '?bbaid=' + advertId+ xtatc
+  // }
+  // if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
+  //   itemUrl = item.selected_advert.url+ xtatc
+  // }
 
   const rakupon = item.selected_advert.rakupon || '';
 
@@ -61,7 +61,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
   if ( KML.length === 0 ) {
     coupon = devENVSetCoupons() || undefined;
   }
-  if (document.location.host.indexOf('editors') !== -1) return devENVGetCoupons();
 
   //calcul du prix pour les membres quand coupon club:
   var priceClubMember = '';
