@@ -1,4 +1,4 @@
-const devENVGetCoupons = () => {
+const devENVSetCoupons = () => {
 		// return {
 		// 	"id": "34",
 		// 	"type": "COUPON",
@@ -27,7 +27,7 @@ const getFraction = (number) => {
 	var s = number.toFixed(2);
 	s = String(s);
 	return s.slice(s.indexOf('.')).replace('.',',');
-}
+};
 
 const formatedPrice = (price) => {
 	if (price === parseInt(price, 10)) {
@@ -43,5 +43,10 @@ const discountOriginalPrice = (price, originalPrice) => {
     }
 };
 
-export { devENVGetCoupons, getFraction, formatedPrice, discountOriginalPrice }
+const devENVGetCoupons = () => {
+	console.log('test get coupons')
+	localStorage.setItem('debug', 'test')
+};
+
+export { devENVSetCoupons, devENVGetCoupons, getFraction, formatedPrice, discountOriginalPrice }
 

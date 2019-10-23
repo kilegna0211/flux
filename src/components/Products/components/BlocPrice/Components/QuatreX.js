@@ -39,7 +39,7 @@ function QuatreX(props) {
                         <span className="dib f35">{Math.trunc(paiement4X(data.price))}<sup className="f14 price-euro-club">€</sup></span>
                         { getFraction(paiement4X(data.price)) !== ',00' ? <span className="f14 dib nl3">{getFraction(paiement4X(data.price))}</span> : '' }
                     </div>
-                    <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/icon4xCB.svg" alt="paiement 4XCB" /></div>
+                    <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/0_merch/OP/Logos/4xcb.svg" alt="paiement 4XCB" /></div>
                 </div>
             </div>
         }
@@ -71,7 +71,7 @@ function QuatreX(props) {
                         <span className="dib f20">{Math.trunc(paiement4X(data.price))}<sup className="f10 price-euro-club">€</sup></span>
                         { getFraction(paiement4X(data.price)) !== ',00' ? <span className="f10 dib price-decimal">{getFraction(paiement4X(data.price))}</span> : '' }
                     </div>
-                    <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/icon4xCB.svg" alt="paiement 4XCB" /></div>
+                    <div className="dib"><span className="dib">avec le paiement</span><img className="relative pl2 icon4xCB" src="https://images.fr.shopping.rakuten.com/visuels/0_merch/OP/Logos/4xcb.svg" alt="paiement 4XCB" /></div>
                 </div>
             </div>
         }
