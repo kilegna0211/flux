@@ -8,6 +8,8 @@ function CouponClub(props) {
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
     const priceCase = 'isCoupon';
+    const amountCoupon = coupon.reduction_amount;
+    const newPrice = data.price - amountCoupon;
 
   return (
     <React.Fragment>
@@ -28,8 +30,8 @@ function CouponClub(props) {
                     }
                 </div>
                 <div className="OpenSans-eb fw8 red-rkt pt2">
-                    <span className="dib f35">{Math.trunc(data.price)}<sup className="f14 price-euro-club">€</sup></span>
-                    { getFraction(data.price) !== ',00' ? <span className="f14 dib nl3">{getFraction(data.price)}</span> : '' }
+                    <span className="dib f35">{Math.trunc(newPrice)}<sup className="f14 price-euro-club">€</sup></span>
+                    { getFraction(newPrice) !== ',00' ? <span className="f14 dib nl3">{getFraction(newPrice)}</span> : '' }
                 </div>
             </div>
             <div className="flux-promo-blocPrice-Club-rightBloc_large-device relative f12 bg-red-rkt white flex flex-column">
@@ -61,8 +63,8 @@ function CouponClub(props) {
                     }
                 </div>
                 <div className="OpenSans-eb fw8 red-rkt pt1 z-2">
-                <span className="dib f20">{Math.trunc(data.price)}<sup className="f10 price-euro-club">€</sup></span>
-                { getFraction(data.price) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(data.price)}</span> : '' }
+                <span className="dib f20">{Math.trunc(newPrice)}<sup className="f10 price-euro-club">€</sup></span>
+                { getFraction(newPrice) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(newPrice)}</span> : '' }
                 </div>
             </div>
             <div className="flux-promo-blocPrice-Club-bottomBloc_small-device relative f12 pt3 pb2 bg-red-rkt white flex flex-column justify-center">
