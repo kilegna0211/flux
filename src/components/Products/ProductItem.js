@@ -13,6 +13,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   //récupération des données du ws
   const productId = item.product.product_id;
   const advertId = item.selected_advert.advertId || 0;
+  const productUrl = item.product.url;
   const category = item.product.category;
   const subCategory = item.product.subcategory;
   const price = item.selected_advert.price;
@@ -22,15 +23,15 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
 
   // url 
-  let itemUrl = '';
-  let xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
-  const productUrl = item.product.url;
-  // if (productUrl.includes('mfp')) {
-  //   itemUrl = productUrl + '&bbaid=' + advertId + xtatc
-  // }
-  // if (productUrl.includes('offer/')) {
-  //   itemUrl = productUrl + '?bbaid=' + advertId+ xtatc
-  // }
+  let specialCharacter = '';
+  const xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
+  if (productUrl.includes('mfp/')) {
+    specialCharacter = '&'
+  }
+  if (productUrl.includes('offer/')) {
+    specialCharacter = '?'
+  }
+  const itemUrl = productUrl + specialCharacter + 'bbaid=' + advertId + xtatc;
   // if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
   //   itemUrl = item.selected_advert.url+ xtatc
   // }
