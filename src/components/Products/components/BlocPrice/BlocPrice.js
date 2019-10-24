@@ -18,9 +18,9 @@ function BlocPrice(props) {
     if (coupon !== null && coupon.clubMember === 'SUBSCRIBED') {
         isCouponMember = true;
     }
-    if (coupon !== null && coupon.clubMember !== null) {
+    if (coupon !== null && coupon.clubMember === null) {
       console.log('remontée du coupon dans blocprice:' + coupon.clubMember)
-      isCouponMember = true;
+      isCouponAllUsers = true;
     }
 
     if (rakupon !== null && rakupon.minimum_purchase_amount <= data.price) {
