@@ -18,7 +18,7 @@ function CouponFullSite(props) {
             : '' 
           }
           </p>
-          { data.originalPrice ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+          { data.originalPrice > data.price ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
             : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
             : ''
           }

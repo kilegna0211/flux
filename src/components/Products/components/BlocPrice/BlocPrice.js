@@ -13,7 +13,7 @@ function BlocPrice(props) {
     var isCouponAllUsers = false;
     const rakupon = data.rakupon || null;
     var isRakupon = false;
-    const isQuatreX = data.price >= 90 || false;
+    const isQuatreX = data.price >= 200 || false;
 
     if (coupon !== null) {
         isCouponMember = coupon.clubMember === 'SUBSCRIBED';

@@ -19,7 +19,7 @@ function CouponClub(props) {
                       : '' 
                     }
                     </p>
-                    { data.originalPrice ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                    { data.originalPrice > data.price ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
                       : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span>  
                       :  <span className="red-rkt f12 b dib pt1 nl2">Prix pour tous</span>
                     }
