@@ -20,12 +20,12 @@ function Sticker(props) {
     }
     { priceCase === 'isPromo' &&  
       <div className="flux-promo-item-sticker bg-red-rkt white center flex justify-center items-center">
-        <p className="flux-promo-item-sticker-text b">% SUPER PROMO</p>
+        <p className="flux-promo-item-sticker-text b">SUPER PROMO</p>
       </div>
     }
     { priceCase === 'noPromo' &&  
       <div className="flux-promo-item-sticker bg-red-rkt white center flex justify-center items-center">
-        <p className="flux-promo-item-sticker-text b">COUP DE COEUR </p>
+        <p className="flux-promo-item-sticker-text b">COUP DE </p>
         <img className="flux-promo-icon_heart pr2" src="https://images.fr.shopping.rakuten.com/visuels/2019-09-20_newfluxmerch/images/icon_coeur.svg" alt="coup de coeur"/>
       </div>
     }
