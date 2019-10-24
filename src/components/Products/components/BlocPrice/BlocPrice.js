@@ -18,8 +18,7 @@ function BlocPrice(props) {
     if (coupon !== null && coupon.clubMember === 'SUBSCRIBED') {
         isCouponMember = true;
     }
-    if (coupon !== null && coupon.clubMember === null) {
-      console.log('remontée du coupon dans clubMember:' + coupon.clubMember)
+    if (coupon !== null && !coupon.clubMember) {
       isCouponAllUsers = true;
     }
 
