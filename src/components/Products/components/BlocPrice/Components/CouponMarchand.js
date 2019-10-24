@@ -8,7 +8,9 @@ function CouponMarchand(props) {
     const rakupon = data.rakupon;
     const rakuponName = rakupon.name;
     const priceCase = 'isCoupon';
-   
+    const amountCoupon = coupon.reduction_amount;
+    const newPrice = data.price - amountCoupon;
+
   return (
     <React.Fragment>
         <Sticker priceCase={priceCase} />
@@ -27,8 +29,8 @@ function CouponMarchand(props) {
           }
         </div>
         <div className="OpenSans-eb fw8 red-rkt">
-          <span className="dib f54">{Math.trunc(data.price)}<sup className="f22 price-euro-full">€</sup></span>
-          { getFraction(data.price) !== ',00' ? <span className="price-decimal-full_large-device f22 dib">{getFraction(data.price)}</span> : '' }
+          <span className="dib f54">{Math.trunc(newPrice)}<sup className="f22 price-euro-full">€</sup></span>
+          { getFraction(newPrice) !== ',00' ? <span className="price-decimal-full_large-device f22 dib">{getFraction(newPrice)}</span> : '' }
         </div>
         <div className="dib f12 main-black"><span className="dib">avec le code</span><span className="b"> {rakuponName}</span></div>
       </div>
@@ -48,8 +50,8 @@ function CouponMarchand(props) {
           }
         </div>
         <div className="OpenSans-eb fw8 red-rkt">
-          <span className="dib f34">{Math.trunc(data.price)}<sup className="f16 price-euro-full_small-device">€</sup></span>
-          { getFraction(data.price) !== ',00' ? <span className="price-decimal-full_small-device f16 dib">{getFraction(data.price)}</span> : '' }
+          <span className="dib f34">{Math.trunc(newPrice)}<sup className="f16 price-euro-full_small-device">€</sup></span>
+          { getFraction(newPrice) !== ',00' ? <span className="price-decimal-full_small-device f16 dib">{getFraction(newPrice)}</span> : '' }
         </div>
         <div className="dib f12 main-black"><span className="dib">avec le code</span><span className="b"> {rakuponName}</span></div>
       </div>
