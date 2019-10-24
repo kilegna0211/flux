@@ -9,6 +9,7 @@ import PromoPrice from './Components/PromoPrice';
 function BlocPrice(props) {
     const { data, device } = props;
     const coupon = data.coupon || null;
+    console.log('remontée du coupon dans blocprice:' + coupon)
     var isCouponMember = false;
     var isCouponAllUsers = false;
     const rakupon = data.rakupon || null;
