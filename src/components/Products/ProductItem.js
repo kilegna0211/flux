@@ -23,15 +23,19 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
 
   // url 
-  let specialCharacter = '';
+  let itemUrl = '';
+  // let specialCharacter = '';
   const xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
-  if (productUrl.includes('mfp/')) {
-    specialCharacter = '&'
+  if (productUrl.includes('mfp')) {
+    // specialCharacter = '&'
+    itemUrl = item.selected_advert.url + xtatc;
   }
   if (productUrl.includes('offer/')) {
-    specialCharacter = '?'
+    // specialCharacter = '?'
+    itemUrl = productUrl + '?bbaid=' + advertId + xtatc;
   }
-  const itemUrl = productUrl + specialCharacter + 'bbaid=' + advertId + xtatc;
+  // itemUrl = productUrl + specialCharacter + 'bbaid=' + advertId + xtatc;
+
   // if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
   //   itemUrl = item.selected_advert.url+ xtatc
   // }
@@ -79,7 +83,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       if ( clubStatus === 'GOLD' ) return number * ( rankMemberStatus.GOLD / 100 )
       if ( clubStatus === 'PLATINIUM' ) return number * ( rankMemberStatus.PLATINIUM / 100 )
     }
-    if ( !rankMemberStatus && item.selected_advert.superpoint_bonus ) {
+    if ( !rankMemberStatus && item.selected_advert.superpoints_bonus ) {
       return number * (item.selected_advert.superpoints_bonus / 100)
     }
     return number * 0.05

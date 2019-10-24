@@ -52,12 +52,12 @@ function PromoPrice(props) {
         <p className="flux-promo-price-off dib line-through f14 pr2">
           { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
             : data.refPrice > data.price ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
-            : '' 
+            : <span className="fixed-height-15"></span> 
           }
         </p>
         { data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
             : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
-            : ''
+            : <span className="fixed-height-15"></span> 
           }
       </div>
       <div className="relative OpenSans-eb fw8 red-rkt">
@@ -76,7 +76,7 @@ function PromoPrice(props) {
             <p>Soit<span className="b"> {economyCalcul(data.refPrice,data.price)} &#8364;</span> d'économie</p>
           </div>
         </div>
-        : <div className="fixed-height-31"></div>
+        : <div className="fixed-height-26"></div>
       }
     </div>
     }

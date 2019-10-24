@@ -49,4 +49,9 @@
     line-height: 1.6rem;
     height: 52px;
 }
-    
+
+@media all and (max-width: 1400px) {
+    .flux-promo-item-link-large_device {
+        margin: 0.5rem;
+    }
+}

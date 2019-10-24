@@ -50,6 +50,11 @@
   padding-top: 0.8rem;
 }
 
+.fixed-height-13 {
+  max-height: 13px;
+  min-height: 13px;
+}
+
 .fixed-height-15 {
   max-height: 15px;
   min-height: 15px;
