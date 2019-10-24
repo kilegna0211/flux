@@ -8,7 +8,7 @@ function CouponMarchand(props) {
     const rakupon = data.rakupon;
     const rakuponName = rakupon.name;
     const priceCase = 'isCoupon';
-    const amountCoupon = coupon.reduction_amount;
+    const amountCoupon = rakupon.reduction_amount;
     const newPrice = data.price - amountCoupon;
 
   return (
