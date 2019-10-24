@@ -8,6 +8,22 @@
     -moz-transform: skew(-10deg);
 }
 
+.flux-promo-icon_timer {
+    width: 12px;
+    transform: skew(10deg);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+}
+
+.flux-promo-icon_heart {
+    width: 12px;
+    transform: skew(10deg);
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+    padding-top: 2px;
+    margin-left: 5px;
+}
+
 .flux-promo-item-sticker-text {
     transform: skew(10deg);
     -webkit-transform: skew(10deg);

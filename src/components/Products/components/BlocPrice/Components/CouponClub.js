@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticker from './Sticker/index';
 import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
@@ -6,9 +7,11 @@ function CouponClub(props) {
     const { data, device } = props;
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
+    const priceCase = 'isCoupon';
 
   return (
     <React.Fragment>
+        <Sticker priceCase={priceCase} />
         { device === 'desktop' && 
         <div className="flux-promo-blocPrice-Club_large-device flex mv3">
             <div className="flux-promo-blocPrice-Club-leftBloc_large-device relative flex flex-column">

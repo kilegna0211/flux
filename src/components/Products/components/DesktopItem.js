@@ -1,6 +1,5 @@
 import React from 'react';
 import BlocImg from './BlocImg/index';
-import Sticker from './Sticker/index';
 import BlocClub from './BlocClub/index';
 import BlocPrice from './BlocPrice/index';
 import './Item.css';
@@ -14,7 +13,6 @@ function DesktopItem(props) {
         <BlocImg data={data} />
         <div className="flux-promo-item-description">
             <p className="flux-promo-item-title b f16 pv3">{data.titleLimited}</p>
-            <Sticker />
         </div>
         <BlocPrice data={data} device={device} />
         <BlocClub data={data} device={device} />

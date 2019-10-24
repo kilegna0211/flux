@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticker from './Sticker/index';
 import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
@@ -8,9 +9,17 @@ function PromoPrice(props) {
       let economy = initialPrice - discountPrice;
       return economy.toLocaleString('fr-FR', { maximumFractionDigits: 2 })
     }
+    let priceCase = '';
+    if ( data.originalPrice || data.refPrice ) {
+      priceCase = 'isPromo'
+    }
+    if ( !data.originalPrice && !data.refPrice ) {
+      priceCase = 'noPromo'
+    }
 
   return (
     <React.Fragment>
+        <Sticker priceCase={priceCase} />
     { device === 'desktop' &&
     <div className="flux-promo-blocPrice-promo flex flex-column mt1 mb3">
       <div className="flex justify-center pt2 fixed-height-21">
@@ -55,7 +64,7 @@ function PromoPrice(props) {
             : <span className="fixed-height-15"></span> 
           }
         </p>
-        { data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+        { data.originalPrice > data.price ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
             : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
             : <span className="fixed-height-15"></span> 
           }

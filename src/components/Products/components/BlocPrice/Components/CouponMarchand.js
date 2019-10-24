@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticker from './Sticker/index';
 import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
@@ -6,9 +7,11 @@ function CouponMarchand(props) {
     const { data, device } = props;
     const rakupon = data.rakupon;
     const rakuponName = rakupon.name;
+    const priceCase = 'isCoupon';
    
   return (
     <React.Fragment>
+        <Sticker priceCase={priceCase} />
     { device === 'desktop' &&
       <div className="flux-promo-blocPrice-full_large-device flex flex-column mv3">
         <div className="flex justify-center pt2">
@@ -39,7 +42,7 @@ function CouponMarchand(props) {
             : '' 
           }
           </p>
-          { data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+          { data.originalPrice > data.price ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
             : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
             : ''
           }

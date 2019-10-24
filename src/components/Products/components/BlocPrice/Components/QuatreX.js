@@ -1,4 +1,5 @@
 import React from 'react';
+import Sticker from './Sticker/index';
 import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
@@ -9,8 +10,11 @@ function QuatreX(props) {
         let echeance = (number / 4) + (commission / 4);
         return echeance
     } 
+    const priceCase = 'is4x';
+
   return (
       <React.Fragment>
+            <Sticker priceCase={priceCase} />
           { device === 'desktop' &&
             <div className="flux-promo-blocPrice-4X flex mv3">
                 <div className="flux-promo-blocPrice-Club-leftBloc_large-device relative flex flex-column">
@@ -21,7 +25,7 @@ function QuatreX(props) {
                             : '' 
                         }
                         </p>
-                        { data.originalPrice ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                        { data.originalPrice > data.price ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
                           : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
                           : <span className="red-rkt f12 dib pt1">Paiement standard</span>
                         }
@@ -53,7 +57,7 @@ function QuatreX(props) {
                                 : '' 
                             }
                         </p>
-                        { data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                        { data.originalPrice > data.price ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
                           : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
                           : <span className="red-rkt f10 dib pt1">Paiement standard</span>
                         }
