@@ -7,10 +7,11 @@ function CouponFullSite(props) {
     const { data, device } = props;
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
+    const priceCase = 'isCoupon';
 
   return (
     <React.Fragment>
-        <Sticker />
+        <Sticker priceCase={priceCase} />
     { device === 'desktop' &&
       <div className="flux-promo-blocPrice-full_large-device flex flex-column mv3">
         <div className="flex justify-center pt2">

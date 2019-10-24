@@ -13,7 +13,7 @@ function PromoPrice(props) {
     if ( data.originalPrice && data.originalPrice > data.price || data.refPrice && data.refPrice > data.price) {
       priceCase = 'isPromo'
     }
-    if ( !data.originalPrice && !data.refPrice ) {
+    if ( !data.originalPrice && !data.refPrice || data.originalPrice < data.price ) {
       priceCase = 'noPromo'
     }
 
