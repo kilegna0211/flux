@@ -19,7 +19,7 @@ function BlocPrice(props) {
         isCouponMember = true;
     }
     if (coupon !== null && coupon.clubMember === null) {
-      console.log('remontée du coupon dans blocprice:' + coupon.clubMember)
+      console.log('remontée du coupon dans clubMember:' + coupon.clubMember)
       isCouponAllUsers = true;
     }
 

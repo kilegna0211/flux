@@ -112,8 +112,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
       clubStatus
     }
 
-    console.log('récupération du coupon :' + data.coupon)
-
   const Item = () => (
     <React.Fragment>
       <DesktopItem key={index} data={data} />
