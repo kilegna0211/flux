@@ -59,8 +59,10 @@ const ProductItem = ({ item, index, user, tracking }) => {
   var coupon = {};
 
   if ( KML.length !== 0 ) {
+    console.log('debug coupon mkt - fonction appelée')
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
       coupon = res
+      console.log(' coupon res =' + coupon)
     });
   } 
   if ( KML.length === 0 ) {
