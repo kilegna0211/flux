@@ -10,7 +10,7 @@ function PromoPrice(props) {
       return economy.toLocaleString('fr-FR', { maximumFractionDigits: 2 })
     }
     let priceCase = '';
-    if ( data.originalPrice || data.refPrice ) {
+    if ( data.originalPrice && data.originalPrice > data.price || data.refPrice && data.refPrice > data.price) {
       priceCase = 'isPromo'
     }
     if ( !data.originalPrice && !data.refPrice ) {
