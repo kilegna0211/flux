@@ -66,6 +66,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
     });
   } 
   if ( KML.length === 0 ) {
+    console.log('debug coupon mkt - fonction PAS appelée')
     coupon = devENVSetCoupons() || undefined;
   }
 
