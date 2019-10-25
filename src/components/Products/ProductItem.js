@@ -57,12 +57,11 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const noteRoundedClass = (Math.round(item.product.review_average_note * 2) / 2) * 10 || '';
 
   const KML = window.KML || [];
-  var coupon = {};
+  let coupon;
 
   if ( KML.length !== 0 ) {
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-      console.log('test return coupon :'+ res)
-      console.log('test return json coupon :'+ JSON.stringify(res))
+      console.log('test return json coupon 2:'+ JSON.stringify(res))
       coupon = JSON.stringify(res)
     });
   } 
@@ -115,8 +114,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       clubStatus
     }
 
-    console.log('save coupon in data '+ data.coupon)
-    console.log('save coupon in data '+ data.coupon[0])
+    console.log('save coupon in data JSON'+ JSON.stringify(data.coupon))
 
   const Item = () => (
     <React.Fragment>
