@@ -28,7 +28,8 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
   if (productUrl.includes('mfp')) {
     // specialCharacter = '&'
-    itemUrl = item.selected_advert.url + xtatc;
+    // itemUrl = item.selected_advert.url + xtatc;
+    itemUrl = productUrl + '&bbaid=' + advertId + xtatc;
   }
   if (productUrl.includes('offer/')) {
     // specialCharacter = '?'
