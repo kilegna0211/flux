@@ -19,8 +19,9 @@ function BlocPrice(props) {
         isCouponMember = true;
     }
     if (coupon !== null && !coupon.clubMember) {
+      console.log('test objest coupon' + data.coupon)
       console.log('test code coupon' + coupon.code)
-      console.log('test code coupon' + coupon.amount)
+      console.log('test amount coupon' + coupon.amount)
       isCouponAllUsers = true;
     }
 
