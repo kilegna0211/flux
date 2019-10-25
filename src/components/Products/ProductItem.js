@@ -115,8 +115,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
       clubStatus
     }
 
-    console.log('save coupon in data JSON'+ data.coupon)
-
   const Item = () => (
     <React.Fragment>
       <DesktopItem key={index} data={data} />
