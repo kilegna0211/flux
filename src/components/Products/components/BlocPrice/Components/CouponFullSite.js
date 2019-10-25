@@ -30,7 +30,11 @@ function CouponFullSite(props) {
           <span className="dib f54">{Math.trunc(data.price)}<sup className="f22 price-euro-full">€</sup></span>
           { getFraction(data.price) !== ',00' ? <span className="price-decimal-full_large-device f22 dib">{getFraction(data.price)}</span> : '' }
         </div>
-        <div className="dib f12 red-rkt"><span className="dib">avec le code</span><span className="b"> {codeCoupon}</span></div>
+        { data.originalPrice > data.price || !data.originalPrice && data.refPrice > data.price ? 
+            <div className="dib f12 red-rkt"><span className="dib">avec le code</span><span className="b"> {codeCoupon}</span></div>
+            :
+            <div className="dib f12 red-rkt mb3"><span className="dib">avec le code</span><span className="b"> {codeCoupon}</span></div>
+        }
       </div>
     }
     { device === 'mob-tab' &&
