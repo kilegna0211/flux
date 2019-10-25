@@ -61,7 +61,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   if ( KML.length !== 0 ) {
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-      console.log('test return json coupon 2:'+ JSON.stringify(res))
+      console.log('test return json coupon 3:'+ JSON.stringify(res))
       coupon = JSON.stringify(res)
     });
   } 
@@ -114,7 +114,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       clubStatus
     }
 
-    console.log('save coupon in data JSON'+ JSON.stringify(data.coupon))
+    console.log('save coupon in data JSON'+ data.coupon)
 
   const Item = () => (
     <React.Fragment>
