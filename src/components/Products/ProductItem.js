@@ -61,6 +61,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   if ( KML.length !== 0 ) {
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
+      console.log('res data coupon :'+res.data)
       coupon = JSON.stringify(res)
       console.log('test return coupon :'+coupon)
     });
