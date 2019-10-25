@@ -8,7 +8,7 @@ import PromoPrice from './Components/PromoPrice';
 
 function BlocPrice(props) {
     const { data, device } = props;
-    console.log('props data coupon:' + data.coupon)
+    // console.log('props data coupon:' + data.coupon)
     const coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;

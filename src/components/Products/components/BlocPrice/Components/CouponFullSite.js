@@ -5,6 +5,7 @@ import './../BlocPrice.css';
 
 function CouponFullSite(props) {
     const { data, device } = props;
+    console.log(data.coupon)
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
     const priceCase = 'isCoupon';

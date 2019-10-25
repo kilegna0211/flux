@@ -6,7 +6,7 @@ import { devENVSetCoupons } from '../../utils/index';
 import './Products.css';
 
 const ProductItem = ({ item, index, user, tracking }) => {
-  // récupération des infos du user:
+  // récupération des infos du user via Jahia:
   const clubMember = user.isMember;
   const clubStatus = user.memberStatus;
 
@@ -56,12 +56,13 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const noteRounded = Math.round(item.product.review_average_note * 10) / 10 || '';
   const noteRoundedClass = (Math.round(item.product.review_average_note * 2) / 2) * 10 || '';
 
+  
   const KML = window.KML || [];
   let coupon;
 
   if ( KML.length !== 0 ) {
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-      console.log('test return json coupon 3:'+ JSON.stringify(res))
+      // console.log('test return json coupon 3:'+ JSON.stringify(res))
       coupon = JSON.stringify(res);
       data.coupon = coupon;
     });

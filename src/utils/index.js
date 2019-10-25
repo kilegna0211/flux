@@ -3,7 +3,6 @@ const devENVSetCoupons = () => {
 		// 	"id": "34",
 		// 	"type": "COUPON",
 		// 	"code": "fullSITE",
-		// 	"clubMember": "SUBSCRIBED",
 		// 	"amount": 25,
 		// 	"minPurchase": 50,
 		// 	"scope": "global",
