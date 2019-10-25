@@ -62,7 +62,8 @@ const ProductItem = ({ item, index, user, tracking }) => {
   if ( KML.length !== 0 ) {
     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
       console.log('test return json coupon 3:'+ JSON.stringify(res))
-      coupon = JSON.stringify(res)
+      coupon = JSON.stringify(res);
+      data.coupon = coupon;
     });
   } 
   if ( KML.length === 0 ) {
