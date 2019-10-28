@@ -8,7 +8,8 @@ import './Products.css';
 const ProductItem = ({ item, index, user, tracking }) => {
   // récupération des infos du user via Jahia:
   const clubMember = user.isMember;
-  const clubStatus = user.memberStatus;
+  const clubRank = user.priceClubRank;
+  const clubStatus = user.priceClubStatus;
 
   //récupération des données du ws
   const productId = item.product.product_id;
@@ -60,32 +61,32 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const KML = window.KML || [];
   let coupon;
 
-  if ( KML.length !== 0 ) {
-    KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-      // console.log('test return json coupon 3:'+ JSON.stringify(res))
-      coupon = JSON.stringify(res);
-      data.coupon = coupon;
-    });
-  } 
-  if ( KML.length === 0 ) {
-    coupon = devENVSetCoupons() || undefined;
-  }
+  // if ( KML.length !== 0 ) {
+  //   KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubStatus).then(function(res) { 
+  //     // console.log('test return json coupon 3:'+ JSON.stringify(res))
+  //     coupon = JSON.stringify(res);
+  //     data.coupon = coupon;
+  //   });
+  // } 
+  // if ( KML.length === 0 ) {
+  //   coupon = devENVSetCoupons() || undefined;
+  // }
 
-  //calcul du prix pour les membres quand coupon club:
-  var priceClubMember = '';
-  if ( coupon !== undefined && price > coupon.minPurchase ) {
-    priceClubMember = price - coupon.amount;
-  }
-  if ( coupon !== undefined && price < coupon.minPurchase ) {
-    priceClubMember = price;
-  }
+  // //calcul du prix pour les membres quand coupon club:
+  // var priceClubMember = '';
+  // if ( coupon !== undefined && price > coupon.minPurchase ) {
+  //   priceClubMember = price - coupon.amount;
+  // }
+  // if ( coupon !== undefined && price < coupon.minPurchase ) {
+  //   priceClubMember = price;
+  // }
 
   const calculRSP = (number) => {
     if ( rankMemberStatus ) {
-      if ( clubStatus === 'REGULAR' ) return number * ( rankMemberStatus.REGULAR / 100 )
-      if ( clubStatus === 'SILVER' ) return number * ( rankMemberStatus.SILVER / 100 )
-      if ( clubStatus === 'GOLD' ) return number * ( rankMemberStatus.GOLD / 100 )
-      if ( clubStatus === 'PLATINIUM' ) return number * ( rankMemberStatus.PLATINIUM / 100 )
+      if ( clubRank === 'REGULAR' ) return number * ( rankMemberStatus.REGULAR / 100 )
+      if ( clubRank === 'SILVER' ) return number * ( rankMemberStatus.SILVER / 100 )
+      if ( clubRank === 'GOLD' ) return number * ( rankMemberStatus.GOLD / 100 )
+      if ( clubRank === 'PLATINIUM' ) return number * ( rankMemberStatus.PLATINIUM / 100 )
     }
     if ( !rankMemberStatus && item.selected_advert.superpoints_bonus ) {
       return number * (item.selected_advert.superpoints_bonus / 100)
@@ -102,7 +103,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
       price,
       refPrice,
       originalPrice,
-      priceClubMember,
       calculRSP,
       pctDiscount,
       itemUrl,
@@ -111,7 +111,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
       titleLimitedMob,
       noteRounded,
       noteRoundedClass,
-      coupon,
       rakupon,
       clubStatus
     }

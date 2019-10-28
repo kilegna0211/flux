@@ -47,11 +47,12 @@
   <script>
     //récupération des infos du user pour environnement DEV || si prod infos récupérées dans jahia
     const isMember = true;
-    const memberStatus = 'SILVER';
+    const priceClubStatus = 'NOT_SUBSCRIBED';
+    const priceClubRank = 'SILVER';
 
     setTimeout(function() {
     window.RKTFLUXPROMORENDER("rootMerchFluxPromo", {
-        "user" : { isMember, memberStatus },
+        "user" : { isMember, priceClubStatus, priceClubRank },
         "campaignId": 932445422,
         "size": 25,
         "tracking": "[PMC]-[H]-[HomePage]-[Rakuten-deals]-[carrousel-offres-exclusives]"

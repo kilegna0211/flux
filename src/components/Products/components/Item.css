@@ -12,6 +12,7 @@
 }
 
 .flux-promo-item-link-small_device {
+    display: none;
     max-width: 186px;
     min-width: 186px;
     max-height: 349px;
@@ -56,3 +57,13 @@
         margin: 0.5rem;
     }
 }
+
+@media all and (max-width: 767.99px) {
+    .flux-promo-item-link-large_device {
+        display: none;
+    }
+    .flux-promo-item-link-small_device {
+        display: block;
+    }
+}
+

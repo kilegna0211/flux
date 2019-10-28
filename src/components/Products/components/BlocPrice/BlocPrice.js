@@ -9,6 +9,31 @@ import PromoPrice from './Components/PromoPrice';
 function BlocPrice(props) {
     const { data, device } = props;
     // console.log('props data coupon:' + data.coupon)
+
+    // const KML = window.KML || [];
+    // let coupon;
+  
+  //   if ( KML.length !== 0 ) {
+  //     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
+  //       // console.log('test return json coupon 3:'+ JSON.stringify(res))
+  //       coupon = JSON.stringify(res);
+  //       data.coupon = coupon;
+  //     });
+  //   } 
+  //   if ( KML.length === 0 ) {
+  //     coupon = devENVSetCoupons() || undefined;
+  //   }
+  // //calcul du prix pour les membres quand coupon club:
+  // var priceClubMember = '';
+  // if ( coupon !== undefined && price > coupon.minPurchase ) {
+  //   priceClubMember = price - coupon.amount;
+  // }
+  // if ( coupon !== undefined && price < coupon.minPurchase ) {
+  //   priceClubMember = price;
+  // }
+
+
+
     const coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;

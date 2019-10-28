@@ -9,7 +9,7 @@ function DesktopItem(props) {
     const device = 'desktop';
 
   return (
-    <a className="flux-promo-item-link-large_device helper_hide-BelowTablet flex flex-column ph4 pb4 pt3 ma3 bg-white ba b--light-gray no-underline mid-gray relative" href={data.itemUrl}>
+    <a className="flux-promo-item-link-large_device flex flex-column ph4 pb4 pt3 ma3 bg-white ba b--light-gray no-underline mid-gray relative" href={data.itemUrl}>
         <BlocImg data={data} />
         <div className="flux-promo-item-description">
             <p className="flux-promo-item-title b f16 pv3">{data.titleLimited}</p>
