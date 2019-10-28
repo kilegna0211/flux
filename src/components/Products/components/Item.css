@@ -67,3 +67,26 @@
     }
 }
 
+@media all and (max-width: 375px) {
+    .flux-promo-item-link-small_device {
+        max-width: 178px;
+        min-width: 178px;
+    } 
+}
+
+@media all and (max-width: 358px) {
+    .flux-promo-item-link-small_device {
+        max-width: 158px;
+        min-width: 158px;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: 0;
+    } 
+    .flux-promo-item-clubR-small_device {
+        padding-top: 8px;
+    }
+    .flux-promo-item-clubR-small_device .red-rkt .main-black {
+        font-size: 9px;
+    }
+}
+
