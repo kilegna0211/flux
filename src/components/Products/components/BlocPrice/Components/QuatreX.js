@@ -49,7 +49,7 @@ function QuatreX(props) {
         }
         { device === 'mob-tab' &&
             <div className="flux-promo-blocPrice-4X_small-device flex flex-column mt1">
-                <div className="flux-promo-blocPrice-Club-topBloc_small-device relative flex flex-column">
+                <div className="flux-promo-blocPrice-Club-topBloc_small-device relative top-0 flex flex-column">
                     <div className="flex justify-center pt2 f10">
                         <p className="flux-promo-price-off dib line-through pr2">
                             { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
@@ -67,7 +67,7 @@ function QuatreX(props) {
                         { getFraction(data.price) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(data.price)}</span> : '' }
                     </div>
                 </div>
-                <div className="flux-promo-blocPrice-4X-bottomBloc_small-device pt3 pb2 relative f12 bg-blue-4x white flex flex-column justify-center">
+                <div className="flux-promo-blocPrice-4X-bottomBloc_small-device pt3 pb2 relative bottom-0 f12 bg-blue-4x white flex flex-column justify-center">
                     <div className="flex justify-center items-center">
                         <span className="dib">4 échéances de</span>
                     </div>
