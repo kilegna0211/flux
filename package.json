@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "core-js": "^3.3.4",
     "react": "^16.9.0",
     "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.9.0",
@@ -23,7 +24,6 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all",
       "ie >= 9"
     ],
     "development": [
