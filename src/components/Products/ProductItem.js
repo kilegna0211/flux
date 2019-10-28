@@ -6,6 +6,7 @@ import { devENVSetCoupons } from '../../utils/index';
 import './Products.css';
 
 const ProductItem = ({ item, index, user, tracking }) => {
+  console.log('test ie')
   // récupération des infos du user via Jahia:
   const clubMember = user.isMember;
   const clubRank = user.priceClubRank;
