@@ -88,5 +88,11 @@
     .flux-promo-item-clubR-small_device .red-rkt .main-black {
         font-size: 9px;
     }
+    .promo-price-economy {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 1rem;
+        padding-bottom: 7px;
+    }
 }
 
