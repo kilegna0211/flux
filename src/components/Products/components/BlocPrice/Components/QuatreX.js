@@ -4,6 +4,7 @@ import { getFraction, discountOriginalPrice, formatedPrice } from './../../../..
 import './../BlocPrice.css';
 
 function QuatreX(props) {
+    console.log('test ipad')
     const { data, device } = props;
     const paiement4X = (number) => {
         let commission = number * 0.022;
@@ -48,7 +49,7 @@ function QuatreX(props) {
             </div>
         }
         { device === 'mob-tab' &&
-            <div className="flux-promo-blocPrice-4X_small-device flex flex-column mt1">
+            <div className="flux-promo-blocPrice-4X_small-device relative flex flex-column mt1">
                 <div className="flux-promo-blocPrice-Club-topBloc_small-device relative top-0 flex flex-column">
                     <div className="flex justify-center pt2 f10">
                         <p className="flux-promo-price-off dib line-through pr2">

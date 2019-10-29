@@ -136,12 +136,13 @@
     width: 55%;
 }
 
-.flux-promo-blocPrice-4X-rightBloc_small-device {
+/* .flux-promo-blocPrice-4X-rightBloc_small-device {
     width: 100%;
-}
+} */
 .flux-promo-blocPrice-4X-bottomBloc_small-device:before {
     content: " ";
     position: absolute;
+    position: -webkit-absolute;
     display: block;
     width: 100%;
     height: 12%;
