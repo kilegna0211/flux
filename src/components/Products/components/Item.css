@@ -72,6 +72,9 @@
         max-width: 178px;
         min-width: 178px;
     } 
+    .promo-price-economy {
+        font-size: 1rem;
+    }
 }
 
 @media all and (max-width: 358px) {
@@ -91,7 +94,6 @@
     .promo-price-economy {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
-        font-size: 1rem;
         padding-bottom: 7px;
     }
 }
