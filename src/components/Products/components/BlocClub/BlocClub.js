@@ -26,16 +26,17 @@ function BlocClub(props) {
     // const RSPAllUsers = data.calculRSP(data.price);
     // const RSPCoupon = data.calculRSP( data.price );
     const RSP = data.calculRSP(data.price);
+    const isNewBook = data.category === 'Livres' && data.advertType === 'Neuf';
 
   return (
     <React.Fragment>
-        { device ==='desktop' && 
+        { device ==='desktop' && !isNewBook &&
             <div className="flux-promo-item-clubR-large_device flex items-center justify-center flex-wrap pt3 bt b--light-gray">
                 <img className="dib" src="https://images.fr.shopping.rakuten.com/visuels/Club-Rakuten/page/LogoCRdesk.svg" alt="Club R" />
                 <p className="f12 red-rkt b db dib-l pl1">{formatedPrice(RSP)} € offerts<span className="normal main-black"> sur vos prochains achats</span></p>
             </div>
         }
-        { device ==='mob-tab' && 
+        { device ==='mob-tab' && !isNewBook &&
             <div className="flux-promo-item-clubR-small_device flex items-center pt2 bt b--light-gray">
                 <img src="https://images.fr.shopping.rakuten.com/visuels/Club-Rakuten/page/LogoCRdesk.svg" alt="Club R" />
                 <div className="red-rkt tl f10 b pl2">

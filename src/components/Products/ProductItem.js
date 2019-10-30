@@ -17,6 +17,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const productUrl = item.product.url;
   const category = item.product.category;
   const subCategory = item.product.subcategory;
+  const advertType = item.selected_advert.advert_type || '';
   const price = item.selected_advert.price;
   const refPrice = item.selected_advert.reference_price || '';
   const originalPrice = item.product.original_price || '';
@@ -100,6 +101,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       advertId,
       category,
       subCategory,
+      advertType,
       price,
       refPrice,
       originalPrice,
