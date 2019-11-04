@@ -4,7 +4,6 @@ import { getFraction, discountOriginalPrice, formatedPrice } from './../../../..
 import './../BlocPrice.css';
 
 function QuatreX(props) {
-    console.log('test ipad')
     const { data, device } = props;
     const paiement4X = (number) => {
         let commission = number * 0.022;

@@ -4,7 +4,7 @@ import ProductList from './components/Products/index'
 import './App.css';
 
 function App(props) {
-  const {campaignId, size, user, tracking} = props;
+  const { campaignId, size, user, tracking, slider } = props;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ function App(props) {
           products={products}
           user={user}
           tracking={tracking}
+          slider={slider}
         />
     </div>
   );

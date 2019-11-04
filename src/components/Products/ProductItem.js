@@ -4,12 +4,14 @@ import DesktopItem from './components/DesktopItem';
 import MobTabItem from './components/MobTabItem';
 import { devENVSetCoupons } from '../../utils/index';
 import './Products.css';
+import Lazyload from 'react-lazyload';
+import { TransitionGroup } from 'react-transition-group';
 
 const ProductItem = ({ item, index, user, tracking }) => {
   // récupération des infos du user via Jahia:
   const clubMember = user.isMember;
   const clubRank = user.priceClubRank;
-  const clubStatus = user.priceClubStatus;
+  // const clubStatus = user.memberStatus;
 
   //récupération des données du ws
   const productId = item.product.product_id;
@@ -113,14 +115,22 @@ const ProductItem = ({ item, index, user, tracking }) => {
       titleLimitedMob,
       noteRounded,
       noteRoundedClass,
-      rakupon,
-      clubStatus
+      rakupon
     }
 
   const Item = () => (
     <React.Fragment>
+                <Lazyload throttle={250} height={200} once>
+          <TransitionGroup key="1"
+                 transitionName="fade"
+                 transitionAppear
+                 transitionAppearTimeout={500}
+                 transitionEnter={false}
+                 transitionLeave={false}>
       <DesktopItem key={index} data={data} />
       <MobTabItem key={index} data={data} />
+      </TransitionGroup>
+      </Lazyload>
     </React.Fragment>
   );
 
