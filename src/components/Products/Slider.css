@@ -3,9 +3,25 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    -webkit-overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     max-height: 460px;
     scroll-behavior: smooth;
+  }
+  
+  .slider-flux::-webkit-scrollbar {
+    display: none;
+    height: 4px;
+    background-color: #F5F5F5;
+  }
+  .slider-flux:hover::-webkit-scrollbar {
+    display: flex;
+    height: 4px;
+    background-color: #F5F5F5;
+  }
+  .slider-flux::-webkit-scrollbar-thumb {
+    background-color: #aaaaaa;
+    border-radius: 10px;
   }
 
   .item-flux-auto {
