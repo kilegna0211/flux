@@ -89,7 +89,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       if ( clubRank === 'REGULAR' ) return number * ( rankMemberStatus.REGULAR / 100 )
       if ( clubRank === 'SILVER' ) return number * ( rankMemberStatus.SILVER / 100 )
       if ( clubRank === 'GOLD' ) return number * ( rankMemberStatus.GOLD / 100 )
-      if ( clubRank === 'PLATINUM' ) return number * ( rankMemberStatus.PLATINIUM / 100 )
+      if ( clubRank === 'PLATINUM' ) return number * ( rankMemberStatus.PLATINUM / 100 )
     }
     if ( !rankMemberStatus && item.selected_advert.superpoints_bonus ) {
       return number * (item.selected_advert.superpoints_bonus / 100)
