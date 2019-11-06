@@ -11,12 +11,11 @@
   
   .slider-flux::-webkit-scrollbar, .slider-flux::-moz-scrollbar, .slider-flux::-ms-scrollbar {
     display: none;
-    height: 4px;
-    background-color: #F5F5F5;
+    height: 0.5px;
   }
   .slider-flux:hover::-webkit-scrollbar, .slider-flux:hover::-moz-scrollbar, .slider-flux:hover::-ms-scrollbar {
     display: flex;
-    height: 4px;
+    height: 0.5px;
     background-color: #F5F5F5;
   }
   .slider-flux::-webkit-scrollbar-thumb, .slider-flux::-moz-scrollbar-thumb, .slider-flux::-ms-scrollbar-thumb {
@@ -63,3 +62,9 @@
     background-position-y: 14px;
     right: 8px;
   }
+
+  @media all and (max-width: 768px) {
+    .flux-promo-item-title-small_device {
+      white-space: normal;
+    }
+}
