@@ -5,21 +5,21 @@
     white-space: nowrap;
     -webkit-overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    max-height: 460px;
+    max-height: 466px;
     scroll-behavior: smooth;
   }
   
-  .slider-flux::-webkit-scrollbar {
+  .slider-flux::-webkit-scrollbar, .slider-flux::-moz-scrollbar, .slider-flux::-ms-scrollbar {
     display: none;
     height: 4px;
     background-color: #F5F5F5;
   }
-  .slider-flux:hover::-webkit-scrollbar {
+  .slider-flux:hover::-webkit-scrollbar, .slider-flux:hover::-moz-scrollbar, .slider-flux:hover::-ms-scrollbar {
     display: flex;
     height: 4px;
     background-color: #F5F5F5;
   }
-  .slider-flux::-webkit-scrollbar-thumb {
+  .slider-flux::-webkit-scrollbar-thumb, .slider-flux::-moz-scrollbar-thumb, .slider-flux::-ms-scrollbar-thumb {
     background-color: #aaaaaa;
     border-radius: 10px;
   }
