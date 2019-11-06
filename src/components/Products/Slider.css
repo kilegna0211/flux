@@ -7,22 +7,32 @@
     -webkit-overflow-scrolling: touch;
     max-height: 466px;
     scroll-behavior: smooth;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
   }
   
-  .slider-flux::-webkit-scrollbar, .slider-flux::-moz-scrollbar, .slider-flux::-ms-scrollbar {
+  .slider-flux::-webkit-scrollbar {
     display: none;
-    height: 0.5px;
+    height: 0;
   }
-  .slider-flux:hover::-webkit-scrollbar, .slider-flux:hover::-moz-scrollbar, .slider-flux:hover::-ms-scrollbar {
-    display: flex;
-    height: 0.5px;
+  /* .slider-flux:hover::-webkit-scrollbar, .slider-flux:hover::-moz-scrollbar, .slider-flux:hover::-ms-scrollbar {
+    display: block;
+    height: 2px;
     background-color: #F5F5F5;
+  } */
+   .slider-flux:hover::-webkit-scrollbar-thumb, .slider-flux::-moz-scrollbar-thumb, .slider-flux::-ms-scrollbar-thumb {
+    /* background-color: #aaaaaa;
+     */
+    /* display: none;
+    height: 0; */
+    /* display: block;
+    height: 2px;
+    background-color:rgba(170,170,170,0.2);
+    border-radius: 10px; */
+  } 
+  .slider-flux::-webkit-scrollbar-button {
+    display:none;
   }
-  .slider-flux::-webkit-scrollbar-thumb, .slider-flux::-moz-scrollbar-thumb, .slider-flux::-ms-scrollbar-thumb {
-    background-color: #aaaaaa;
-    border-radius: 10px;
-  }
-
   .item-flux-auto {
     max-width: 220px;
     min-width: 220px;
