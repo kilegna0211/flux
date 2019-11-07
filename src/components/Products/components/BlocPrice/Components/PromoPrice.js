@@ -18,15 +18,12 @@ function PromoPrice(props) {
     }
     if ( !data.originalPrice && !data.refPrice ) {
       priceCase = 'noPromo'
-      console.log(priceCase)
     }
     if ( data.originalPrice && discountOriginalPrice(data.price,data.originalPrice) <= 1 || data.originalPrice <= data.price ) {
       priceCase = 'noPromo'
-      console.log(priceCase)
     }
     if ( !data.originalPrice && data.pctDiscount <= 1 || !data.originalPrice && data.refPrice <= data.price ) {
       priceCase = 'noPromo'
-      console.log(priceCase)
     }
 
   return (
