@@ -5,10 +5,12 @@
     white-space: nowrap;
     -webkit-overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-y: scroll;
+    -ms-overflow-scrolling: touch;
     max-height: 466px;
     scroll-behavior: smooth;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
+    /* overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none; */
   }
   
   .slider-flux::-webkit-scrollbar {
