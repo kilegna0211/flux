@@ -8,7 +8,7 @@ function ProductList(props) {
   let clientWidth = window.innerWidth > 992 ? 'desktop' : '';
 
   return (
-    <div className="product-container">
+    <div className="product-container relative">
       { slider && clientWidth === 'desktop' &&
         <Button slider={slider} position="left"/>
       }
