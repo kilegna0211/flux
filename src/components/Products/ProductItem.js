@@ -28,22 +28,16 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   // url 
   let itemUrl = '';
-  // let specialCharacter = '';
+  let specialCharacter = '';
   const xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
-  if (productUrl.includes('mfp')) {
-    // specialCharacter = '&'
-    itemUrl = item.selected_advert.url + xtatc;
-    // itemUrl = productUrl + '&bbaid=' + advertId + xtatc;
-  }
   if (productUrl.includes('offer/')) {
-    // specialCharacter = '?'
+    specialCharacter = '?'
     itemUrl = productUrl + '?bbaid=' + advertId + xtatc;
   }
-  // itemUrl = productUrl + specialCharacter + 'bbaid=' + advertId + xtatc;
-
-  // if (!productUrl.includes('mfp') && !productUrl.includes('offer/')) {
-  //   itemUrl = item.selected_advert.url+ xtatc
-  // }
+  else {
+    specialCharacter = '&'
+    itemUrl = productUrl + '&bbaid=' + advertId + xtatc;
+  }
 
   const rakupon = item.selected_advert.rakupon || '';
 
