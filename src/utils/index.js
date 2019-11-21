@@ -35,12 +35,5 @@ const formatedPrice = (price) => {
 	return price.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 };
 
-const discountOriginalPrice = (price, originalPrice) => {
-	if ( originalPrice > price ) {
-      let discountPrice = Math.round((originalPrice-price)*100/originalPrice);
-      return discountPrice;
-    }
-};
-
-export { devENVSetCoupons, getFraction, formatedPrice, discountOriginalPrice }
+export { devENVSetCoupons, getFraction, formatedPrice }
 

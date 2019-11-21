@@ -33,7 +33,6 @@ function BlocPrice(props) {
   // }
 
 
-
     const coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;
@@ -56,23 +55,23 @@ function BlocPrice(props) {
     }
 
   return (
-<React.Fragment>
-{ isCouponMember && data.priceClubMember !== data.price &&
-  <CouponClub data={data} device={device} />
-}
-{ isCouponAllUsers && !isCouponMember &&
- <CouponFullSite data={data} device={device} />
-}
-{ !isCouponMember && !isCouponAllUsers && isRakupon &&
-   <CouponMarchand data={data} device={device} />
-}
-{ !isCouponMember && !isCouponAllUsers && !isRakupon && isQuatreX &&
-   <QuatreX data={data} device={device} /> 
-}
-{ !isCouponMember && !isCouponAllUsers && !isRakupon && !isQuatreX &&
-   <PromoPrice data={data} device={device} />
-}
-</React.Fragment>
+    <React.Fragment>
+    { isCouponMember && data.priceClubMember !== data.price &&
+      <CouponClub data={data} device={device} />
+    }
+    { isCouponAllUsers && !isCouponMember &&
+     <CouponFullSite data={data} device={device} />
+    }
+    { !isCouponMember && !isCouponAllUsers && isRakupon &&
+       <CouponMarchand data={data} device={device} />
+    }
+    { !isCouponMember && !isCouponAllUsers && !isRakupon && isQuatreX &&
+       <QuatreX data={data} device={device} /> 
+    }
+    { !isCouponMember && !isCouponAllUsers && !isRakupon && !isQuatreX &&
+       <PromoPrice data={data} device={device} />
+    }
+    </React.Fragment>
   );
 };
 

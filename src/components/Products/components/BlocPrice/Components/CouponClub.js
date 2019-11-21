@@ -1,6 +1,6 @@
 import React from 'react';
 import Sticker from './Sticker/index';
-import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
+import { getFraction, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
 function CouponClub(props) {
@@ -10,6 +10,7 @@ function CouponClub(props) {
     const priceCase = 'isCoupon';
     const amountCoupon = coupon.reduction_amount;
     const newPrice = data.price - amountCoupon;
+    const amountDiscount = data.amountDiscount;
 
   return (
     <React.Fragment>
@@ -24,8 +25,7 @@ function CouponClub(props) {
                       : '' 
                     }
                     </p>
-                    { data.originalPrice > data.price ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
-                      : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span>  
+                    { amountDiscount ? <span className="dib white b f12 flux-promo-pct-discount">-{amountDiscount}%</span>  
                       :  <span className="red-rkt f12 b dib pt1 nl2">Prix pour tous</span>
                     }
                 </div>
@@ -57,8 +57,7 @@ function CouponClub(props) {
                       : '' 
                     }
                     </p>
-                    { data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> : 
-                        !data.refPrice && data.originalPrice ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
+                    { amountDiscount ? <span className="dib white b f10 flux-promo-pct-discount">-{amountDiscount}%</span>
                         : <span className="red-rkt f12 b dib nl2">Prix pour tous</span>
                     }
                 </div>

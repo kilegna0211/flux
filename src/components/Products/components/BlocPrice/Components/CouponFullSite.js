@@ -1,6 +1,6 @@
 import React from 'react';
 import Sticker from './Sticker/index';
-import { getFraction, discountOriginalPrice, formatedPrice } from './../../../../../utils/index';
+import { getFraction, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
 function CouponFullSite(props) {
@@ -9,6 +9,7 @@ function CouponFullSite(props) {
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
     const priceCase = 'isCoupon';
+    const amountDiscount = data.amountDiscount;
 
   return (
     <React.Fragment>
@@ -17,13 +18,12 @@ function CouponFullSite(props) {
       <div className="flux-promo-blocPrice-full_large-device flex flex-column mv3">
         <div className="flex justify-center pt2">
           <p className="flux-promo-price-off dib line-through fixed-height-15 f14 pr2">
-          { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
-            : data.refPrice > data.price ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
+          { data.originalPrice > data.price && amountDiscount ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
+            : data.refPrice > data.price && amountDiscount ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
             : '' 
           }
           </p>
-          { data.originalPrice > data.price ? <span className="dib white b f12 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
-            : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f12 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
+          { amountDiscount ? <span className="dib white b f12 flux-promo-pct-discount">-{amountDiscount}%</span> 
             : ''
           }
         </div>
@@ -42,13 +42,12 @@ function CouponFullSite(props) {
       <div className="flux-promo-blocPrice-full_small-device flex flex-column mt3">
         <div className="flex justify-center pt3 pb2">
           <p className="flux-promo-price-off dib line-through fixed-height-15 f14 pr2">
-          { data.originalPrice > data.price ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
-            : data.refPrice > data.price ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
+          { data.originalPrice > data.price && amountDiscount ? <span>{formatedPrice(data.originalPrice)} &#8364;</span>
+            : data.refPrice > data.price && amountDiscount ? <span>{formatedPrice(data.refPrice)} &#8364;</span>
             : '' 
           }
           </p>
-          { data.originalPrice > data.price ? <span className="dib white b f10 flux-promo-pct-discount">-{discountOriginalPrice(data.price,data.originalPrice)}%</span> 
-            : !data.originalPrice && data.refPrice && data.pctDiscount > 1 ? <span className="dib white b f10 flux-promo-pct-discount">-{data.pctDiscount}%</span> 
+          { amountDiscount ? <span className="dib white b f10 flux-promo-pct-discount">-{amountDiscount}%</span> 
             : ''
           }
         </div>

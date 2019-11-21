@@ -23,8 +23,23 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const price = item.selected_advert.price;
   const refPrice = item.selected_advert.reference_price || '';
   const originalPrice = item.product.original_price || '';
-  const pctDiscount = item.selected_advert.pct_discount || ''; 
   const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
+
+    // calcul discount
+    let amountDiscount;
+    const pctDiscount = item.selected_advert.pct_discount || ''; 
+    function calculDiscount(price,originalPrice,refPrice) {
+      if ( originalPrice && originalPrice > price ) {
+        amountDiscount = Math.floor((originalPrice - price) * 100 / originalPrice);
+        if (amountDiscount >= 4) return amountDiscount;
+      }
+      if ( pctDiscount && refPrice && refPrice > price ) {
+        amountDiscount = pctDiscount;
+        if (amountDiscount >= 4) return amountDiscount;
+      }
+      return amountDiscount = '';
+    }
+    calculDiscount(price,originalPrice,refPrice);
 
   // url 
   let itemUrl = '';
@@ -59,7 +74,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   let coupon;
 
   // if ( KML.length !== 0 ) {
-  //   KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubStatus).then(function(res) { 
+  //   KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubRank).then(function(res) { 
   //     // console.log('test return json coupon 3:'+ JSON.stringify(res))
   //     coupon = JSON.stringify(res);
   //     data.coupon = coupon;
@@ -102,7 +117,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       refPrice,
       originalPrice,
       calculRSP,
-      pctDiscount,
+      amountDiscount,
       itemUrl,
       imgUrl,
       titleLimited,
