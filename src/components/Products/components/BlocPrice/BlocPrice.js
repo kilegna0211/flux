@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './BlocPrice.css';
 import CouponClub from './Components/CouponClub';
 import CouponFullSite from './Components/CouponFullSite';
@@ -8,32 +8,7 @@ import PromoPrice from './Components/PromoPrice';
 
 function BlocPrice(props) {
     const { data, device } = props;
-    // console.log('props data coupon:' + data.coupon)
-
-    // const KML = window.KML || [];
-    // let coupon;
-  
-  //   if ( KML.length !== 0 ) {
-  //     KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-  //       // console.log('test return json coupon 3:'+ JSON.stringify(res))
-  //       coupon = JSON.stringify(res);
-  //       data.coupon = coupon;
-  //     });
-  //   } 
-  //   if ( KML.length === 0 ) {
-  //     coupon = devENVSetCoupons() || undefined;
-  //   }
-  // //calcul du prix pour les membres quand coupon club:
-  // var priceClubMember = '';
-  // if ( coupon !== undefined && price > coupon.minPurchase ) {
-  //   priceClubMember = price - coupon.amount;
-  // }
-  // if ( coupon !== undefined && price < coupon.minPurchase ) {
-  //   priceClubMember = price;
-  // }
-
-
-    const coupon = data.coupon || null;
+    var coupon = data.coupon || null;
     var isCouponMember = false;
     var isCouponAllUsers = false;
     const rakupon = data.rakupon || null;
@@ -44,9 +19,8 @@ function BlocPrice(props) {
         isCouponMember = true;
     }
     if (coupon !== null && !coupon.clubMember) {
-      // console.log('test objest coupon' + data.coupon)
-      // console.log('test code coupon' + coupon.code)
-      // console.log('test amount coupon' + coupon.amount)
+      console.log('coupon all' + coupon)
+      console.log('test coupon : '+ JSON.stringify(coupon))
       isCouponAllUsers = true;
     }
 

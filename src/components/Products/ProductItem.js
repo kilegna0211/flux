@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import DesktopItem from './components/DesktopItem';
 import MobTabItem from './components/MobTabItem';
 import { devENVSetCoupons } from '../../utils/index';
 import './Products.css';
-import Lazyload from 'react-lazyload';
-import { TransitionGroup } from 'react-transition-group';
 
 const ProductItem = ({ item, index, user, tracking }) => {
   // récupération des infos du user via Jahia:
   const clubMember = user.isMember;
   const clubRank = user.priceClubRank;
-  // const clubStatus = user.memberStatus;
 
   //récupération des données du ws
   const productId = item.product.product_id;
@@ -43,14 +40,11 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   // url 
   let itemUrl = '';
-  let specialCharacter = '';
   const xtatc = '&xtatc=PUB-' + tracking + '-[' + productId + ']-[]' || '';
   if (productUrl.includes('offer/')) {
-    specialCharacter = '?'
     itemUrl = productUrl + '?bbaid=' + advertId + xtatc;
   }
   else {
-    specialCharacter = '&'
     itemUrl = productUrl + '&bbaid=' + advertId + xtatc;
   }
 
@@ -68,30 +62,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   const noteRounded = Math.round(item.product.review_average_note * 10) / 10 || '';
   const noteRoundedClass = (Math.round(item.product.review_average_note * 2) / 2) * 10 || '';
-
-  
-  const KML = window.KML || [];
-  let coupon;
-
-  // if ( KML.length !== 0 ) {
-  //   KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubRank).then(function(res) { 
-  //     // console.log('test return json coupon 3:'+ JSON.stringify(res))
-  //     coupon = JSON.stringify(res);
-  //     data.coupon = coupon;
-  //   });
-  // } 
-  // if ( KML.length === 0 ) {
-  //   coupon = devENVSetCoupons() || undefined;
-  // }
-
-  // //calcul du prix pour les membres quand coupon club:
-  // var priceClubMember = '';
-  // if ( coupon !== undefined && price > coupon.minPurchase ) {
-  //   priceClubMember = price - coupon.amount;
-  // }
-  // if ( coupon !== undefined && price < coupon.minPurchase ) {
-  //   priceClubMember = price;
-  // }
 
   const calculRSP = (number) => {
     if ( rankMemberStatus ) {
@@ -127,19 +97,53 @@ const ProductItem = ({ item, index, user, tracking }) => {
       rakupon
     }
 
+  //get coupon in Lucy with KML function
+  const KML = window.KML || [];
+  let result;
+  const [coupon, setCoupon] = useState({});
+  async function getCoupon() {
+    try{
+      if ( KML.length !== 0 ) {
+        console.log('KML fonction launch')
+        KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
+          console.log('test return res coupon from KML:'+ res)
+          console.log('test return res coupon from KML:'+ JSON.stringify(res))
+          return result = JSON.stringify(res);
+        });
+      } 
+      if ( KML.length === 0 ) {
+        result = devENVSetCoupons() || undefined;
+        return result
+      }
+    }
+    catch(error) {
+      console.error("ERROR:" + error);
+  }
+  }
+ 
+  useEffect(() => {
+    getCoupon(price).then(res => {
+      setCoupon(res)
+    })
+  }
+  , [price]);
+
+  data.coupon = coupon;
+
+    //calcul du prix pour les membres quand coupon club:
+    // var priceClubMember = '';
+    // if ( coupon !== undefined && price > coupon.minPurchase ) {
+    //   priceClubMember = price - coupon.amount;
+    // }
+    // if ( coupon !== undefined && price < coupon.minPurchase ) {
+    //   priceClubMember = price;
+    // }
+
+console.log(data)
   const Item = () => (
     <React.Fragment>
-                <Lazyload throttle={250} height={200} once>
-          <TransitionGroup key="1"
-                 transitionName="fade"
-                 transitionAppear
-                 transitionAppearTimeout={500}
-                 transitionEnter={false}
-                 transitionLeave={false}>
-      <DesktopItem key={index} data={data} />
-      <MobTabItem key={index} data={data} />
-      </TransitionGroup>
-      </Lazyload>
+        <DesktopItem key={index} data={data} />
+        <MobTabItem key={index} data={data} />
     </React.Fragment>
   );
 

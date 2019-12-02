@@ -4,9 +4,8 @@ import { getFraction, formatedPrice } from './../../../../../utils/index';
 import './../BlocPrice.css';
 
 function CouponClub(props) {
-    const { data, device } = props;
-    const coupon = data.coupon;
-    const codeCoupon = coupon.code || '';
+    const { data, device, coupon } = props;
+    const codeCoupon = coupon.code || 0;
     const priceCase = 'isCoupon';
     const amountCoupon = coupon.reduction_amount;
     const newPrice = data.price - amountCoupon;

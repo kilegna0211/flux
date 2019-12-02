@@ -5,7 +5,6 @@ import './../BlocPrice.css';
 
 function CouponFullSite(props) {
     const { data, device } = props;
-    console.log(data.coupon)
     const coupon = data.coupon;
     const codeCoupon = coupon.code || '';
     const priceCase = 'isCoupon';
@@ -53,7 +52,7 @@ function CouponFullSite(props) {
         </div>
         <div className="OpenSans-eb fw8 red-rkt">
           <span className="dib f34">{Math.trunc(data.price)}<sup className="f16 price-euro-full_small-device">€</sup></span>
-          { getFraction(data.priceClubMember) !== ',00' ? <span className="price-decimal-full_small-device f16 dib">{getFraction(data.priceClubMember)}</span> : '' }
+          { getFraction(data.price) !== ',00' ? <span className="price-decimal-full_small-device f16 dib">{getFraction(data.price)}</span> : '' }
         </div>
         <div className="dib f12 red-rkt"><span className="dib">avec le code</span><span className="b"> {codeCoupon}</span></div>
       </div>
