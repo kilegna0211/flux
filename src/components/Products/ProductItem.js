@@ -126,7 +126,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
       setCoupon(res)
     })
   }
-  , [coupon]);
+  , [item]);
 console.log('test coupon : '+ coupon)
   data.coupon = coupon;
 

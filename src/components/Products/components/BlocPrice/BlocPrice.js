@@ -19,8 +19,7 @@ function BlocPrice(props) {
         isCouponMember = true;
     }
     if (coupon !== null && !coupon.clubMember) {
-      console.log('coupon all' + coupon)
-      console.log('test coupon : '+ JSON.stringify(coupon))
+      console.log('coupon test from bloc price' + coupon)
       isCouponAllUsers = true;
     }
 
