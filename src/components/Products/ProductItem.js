@@ -106,8 +106,9 @@ const ProductItem = ({ item, index, user, tracking }) => {
       if ( KML.length !== 0 ) {
         console.log('KML fonction launch')
         KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-          console.log('test return res coupon from KML:'+ JSON.stringify(res))
-          return result = JSON.stringify(res);
+          console.log('test return res coupon from KML:'+ res)
+          result = res
+          return result
         });
       } 
       if ( KML.length === 0 ) {
