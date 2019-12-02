@@ -106,7 +106,6 @@ const ProductItem = ({ item, index, user, tracking }) => {
       if ( KML.length !== 0 ) {
         console.log('KML fonction launch')
         KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-          console.log('test return res coupon from KML:'+ res)
           console.log('test return res coupon from KML:'+ JSON.stringify(res))
           return result = JSON.stringify(res);
         });
@@ -123,11 +122,12 @@ const ProductItem = ({ item, index, user, tracking }) => {
  
   useEffect(() => {
     getCoupon().then(res => {
+      console.log('resultat coupon from hook :' + res)
       setCoupon(res)
     })
   }
   , [coupon]);
-
+console.log('test coupon : '+ coupon)
   data.coupon = coupon;
 
     //calcul du prix pour les membres quand coupon club:
