@@ -122,11 +122,11 @@ const ProductItem = ({ item, index, user, tracking }) => {
   }
  
   useEffect(() => {
-    getCoupon(price).then(res => {
+    getCoupon().then(res => {
       setCoupon(res)
     })
   }
-  , [price]);
+  , [coupon]);
 
   data.coupon = coupon;
 
