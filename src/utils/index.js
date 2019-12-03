@@ -1,25 +1,26 @@
 const devENVSetCoupons = () => {
-		return {
-			"id": "34",
-			"type": "COUPON",
-			"code": "fullSITE",
-			"amount": 25,
-			"minPurchase": 50,
-			"scope": "global",
-			"programmation": [
-				{
-				"start": [
-					"2019-10-03",
-					"00:00"
-				],
-				"end": [
-					"2019-10-31",
-					"23:59"
-				]
-				}
-			]
-			}
-		// return undefined
+		// return {
+		// 	"id": "34",
+		// 	"type": "COUPON",
+		// 	"code": "fullSITE",
+		// 	"amount": 10,
+		// 	"minPurchase": 50,
+		// 	"clubMember": "SUBSCRIBED",
+		// 	"scope": "global",
+		// 	"programmation": [
+		// 		{
+		// 		"start": [
+		// 			"2019-10-03",
+		// 			"00:00"
+		// 		],
+		// 		"end": [
+		// 			"2019-10-31",
+		// 			"23:59"
+		// 		]
+		// 		}
+		// 	]
+		// 	}
+		return {}
 }
 
 const getFraction = (number) => {

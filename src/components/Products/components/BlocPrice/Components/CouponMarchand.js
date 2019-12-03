@@ -32,7 +32,7 @@ function CouponMarchand(props) {
           <span className="dib f54">{Math.trunc(newPrice)}<sup className="f22 price-euro-full">€</sup></span>
           { getFraction(newPrice) !== ',00' ? <span className="price-decimal-full_large-device f22 dib">{getFraction(newPrice)}</span> : '' }
         </div>
-        { data.originalPrice > data.price || !data.originalPrice && data.refPrice > data.price ? 
+        { amountDiscount ? 
             <div className="dib f12 main-black"><span className="dib">avec le code</span><span className="b"> {rakuponName}</span></div>
             :
             <div className="dib f12 main-black mb3"><span className="dib">avec le code</span><span className="b"> {rakuponName}</span></div>

@@ -11,6 +11,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const clubRank = user.priceClubRank;
 
   //récupération des données du ws
+  const imgUrl = item.product.image_1 + '_ML.jpg' || '';
   const productId = item.product.product_id;
   const advertId = item.selected_advert.advertId || 0;
   const productUrl = item.product.url;
@@ -21,6 +22,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const refPrice = item.selected_advert.reference_price || '';
   const originalPrice = item.product.original_price || '';
   const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
+  const rakupon = item.selected_advert.rakupon || '';
 
     // calcul discount
     let amountDiscount;
@@ -47,10 +49,7 @@ const ProductItem = ({ item, index, user, tracking }) => {
   else {
     itemUrl = productUrl + '&bbaid=' + advertId + xtatc;
   }
-
-  const rakupon = item.selected_advert.rakupon || '';
-
-  const imgUrl = item.product.image_1 + '_ML.jpg' || '';
+ 
   //Titre Item - gestion de la longueur large device
   let titleLimited;
   (item.product.title.length > 29) ? titleLimited = item.product.title.substring(0, 26).concat('...') : titleLimited = item.product.title;
@@ -99,48 +98,33 @@ const ProductItem = ({ item, index, user, tracking }) => {
 
   //get coupon in Lucy with KML function
   const KML = window.KML || [];
-  let result;
   const [coupon, setCoupon] = useState({});
-  async function getCoupon() {
-    try{
-      if ( KML.length !== 0 ) {
-        console.log('KML fonction launch')
-        KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
-          console.log('test return res coupon from KML:'+ res)
-          result = res
-          return result
-        });
-      } 
-      if ( KML.length === 0 ) {
-        result = devENVSetCoupons() || undefined;
-        return result
-      }
-    }
-    catch(error) {
-      console.error("ERROR:" + error);
-  }
-  }
- 
+  
   useEffect(() => {
-    getCoupon().then(res => {
-      console.log('resultat coupon from hook :' + res)
-      setCoupon(res)
-    })
+    let result;
+    async function getCoupon() {
+      try {
+        if ( KML.length !== 0 ) {
+          KML.marketing.coupons.get(category, subCategory, productId, advertId, price, clubMember).then(function(res) { 
+            setCoupon(res)
+          });
+        } 
+        if ( KML.length === 0 ) {
+          result = devENVSetCoupons() || undefined;
+          setCoupon(result)
+        }
+      }
+      catch(error) {
+        console.error("ERROR:" + error);
+    }
+    }
+    getCoupon()
   }
   , [item]);
-console.log('test coupon : '+ coupon)
+
+  // ajout du coupon 
   data.coupon = coupon;
 
-    //calcul du prix pour les membres quand coupon club:
-    // var priceClubMember = '';
-    // if ( coupon !== undefined && price > coupon.minPurchase ) {
-    //   priceClubMember = price - coupon.amount;
-    // }
-    // if ( coupon !== undefined && price < coupon.minPurchase ) {
-    //   priceClubMember = price;
-    // }
-
-console.log(data)
   const Item = () => (
     <React.Fragment>
         <DesktopItem key={index} data={data} />
