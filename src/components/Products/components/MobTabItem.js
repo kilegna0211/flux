@@ -8,16 +8,19 @@ function MobTabItem(props) {
     const { data } = props;
     const sellerName = data.sellerName;
     const sellerCrew = 'cat-pm2';
-    console.log(sellerName);
     const device = 'mob-tab';
     let isAppMob;
     let isMob = window.innerWidth <= 576 ? true : false;
-    if (navigator.userAgent.search('BuyerApp') > -1 || isMob) {
+    console.log(isMob)
+    if (navigator.userAgent.search('BuyerApp') > -1) {
         isAppMob = true
-      } else {
-        isAppMob  = false
+      } 
+    if (navigator.userAgent.search('mob') > -1) {
+        isAppMob = true
+      } 
+    else {
+        isAppMob = false
       }
-    
 
   return (
     <React.Fragment>
