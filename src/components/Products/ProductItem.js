@@ -23,8 +23,9 @@ const ProductItem = ({ item, index, user, tracking }) => {
   const originalPrice = item.product.original_price || '';
   const rankMemberStatus = item.selected_advert.rank_coefficients || undefined;
   const rakupon = item.selected_advert.rakupon || '';
+  const sellerName = item.selected_advert.login || '';
 
-    // calcul discount
+  // calcul discount
     let amountDiscount;
     const pctDiscount = item.selected_advert.pct_discount || ''; 
     function calculDiscount(price,originalPrice,refPrice) {
@@ -93,7 +94,8 @@ const ProductItem = ({ item, index, user, tracking }) => {
       titleLimitedMob,
       noteRounded,
       noteRoundedClass,
-      rakupon
+      rakupon,
+      sellerName
     }
 
   //get coupon in Lucy with KML function
