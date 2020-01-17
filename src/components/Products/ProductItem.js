@@ -73,6 +73,10 @@ const ProductItem = ({ item, index, user, tracking }) => {
     if ( !rankMemberStatus && item.selected_advert.superpoints_bonus ) {
       return number * (item.selected_advert.superpoints_bonus / 100)
     }
+    //specific % for CREW 
+    if (sellerName === 'cat-pm2') {
+      return number * 0.10
+    }
     return number * 0.05
   }
 

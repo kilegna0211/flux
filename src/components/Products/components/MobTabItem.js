@@ -10,8 +10,7 @@ function MobTabItem(props) {
     const sellerCrew = 'cat-pm2';
     const device = 'mob-tab';
     let isAppMob;
-    let isMob = window.innerWidth <= 576 ? true : false;
-    console.log(isMob)
+
     if (navigator.userAgent.search('BuyerApp') > -1) {
         isAppMob = true
       } 
@@ -29,7 +28,7 @@ function MobTabItem(props) {
                 <p className="flux-promo-item-title-small_device b f12 pv3">{data.titleLimitedMob}</p>
                 <BlocImg data={data} />
                 <BlocPrice data={data} device={device} />
-                <BlocClub data={data} device={device}/>
+                <BlocClub data={data} device={device} />
             </a>
     }
     </React.Fragment>
