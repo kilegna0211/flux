@@ -61,7 +61,7 @@ function QuatreX(props) {
                           : <span className="red-rkt f10 dib pt1">Paiement standard</span>
                         }
                     </div>
-                    <div className="OpenSans-eb fw8 red-rkt pt1" style="margin-bottom:1px">
+                    <div className="flux-promo-blocPrice-4X_price OpenSans-eb fw8 red-rkt pt1">
                         <span className="dib f20">{Math.trunc(data.price)}<sup className="f10 price-euro-club">€</sup></span>
                         { getFraction(data.price) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(data.price)}</span> : '' }
                     </div>
