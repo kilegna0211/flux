@@ -48,7 +48,7 @@ function QuatreX(props) {
             </div>
         }
         { device === 'mob-tab' &&
-            <div className="flux-promo-blocPrice-4X_small-device relative flex flex-column mt1">
+            <div className="flux-promo-blocPrice-4X_small-device flex flex-column mt1">
                 <div className="flux-promo-blocPrice-Club-topBloc_small-device relative top-0 flex flex-column">
                     <div className="flex justify-center pt2 f10">
                         <p className="flux-promo-price-off dib line-through pr2">
@@ -61,7 +61,7 @@ function QuatreX(props) {
                           : <span className="red-rkt f10 dib pt1">Paiement standard</span>
                         }
                     </div>
-                    <div className="OpenSans-eb fw8 red-rkt pt1 z-2">
+                    <div className="OpenSans-eb fw8 red-rkt pt1" style="margin-bottom:1px">
                         <span className="dib f20">{Math.trunc(data.price)}<sup className="f10 price-euro-club">€</sup></span>
                         { getFraction(data.price) !== ',00' ? <span className="price-decimal f10 dib">{getFraction(data.price)}</span> : '' }
                     </div>
