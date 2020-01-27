@@ -6,20 +6,7 @@ import './Item.css';
 
 function MobTabItem(props) {
     const { data } = props;
-    const sellerName = data.sellerName;
-    const sellerCrew = 'cat-pm2';
     const device = 'mob-tab';
-    let isAppMob;
-
-    if (navigator.userAgent.search('BuyerApp') > -1) {
-        isAppMob = true
-      } 
-    if (navigator.userAgent.search('mob') > -1) {
-        isAppMob = true
-      } 
-    else {
-        isAppMob = false
-      }
 
   return (
     <React.Fragment>
